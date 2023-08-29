@@ -17,16 +17,16 @@ import PosterFallback from "../../assets/no-poster.png";
 import "./style.scss";
 
 const Carousel = ({ data, loading, endpoint, title }) => {
-  const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
+  const carouselContainer = useRef();
   const navigate = useNavigate();
 
   const navigation = (direction) => {
     const container = carouselContainer.current;
     const scrollAmount =
       direction === "left"
-        ? container.scrollLeft - container.offsetWidth + 20
-        : container.scrollLeft + container.offsetWidth + 20;
+        ? container.scrollLeft - container.offsetWidth - 16
+        : container.scrollLeft + container.offsetWidth + 16;
 
     container.scrollTo({
       left: scrollAmount,
@@ -49,18 +49,18 @@ const Carousel = ({ data, loading, endpoint, title }) => {
   return (
     <div className="carousel">
       <ContentWrapper>
-        {title && <h2 className="carouselTitle">{title}</h2>}
+        {title && <h2 className="carousel__title">{title}</h2>}
         <BsFillArrowLeftCircleFill
-          className="carouselLeftNav arrow"
+          className="carousel__left-arrow arrow"
           onClick={() => navigation("left")}
         />
         <BsFillArrowRightCircleFill
-          className="carouselRightNav arrow"
+          className="carousel__right-arrow arrow"
           onClick={() => navigation("right")}
         />
 
         {!loading ? (
-          <div className="carouselItems" ref={carouselContainer}>
+          <div className="carousel__items" ref={carouselContainer}>
             {data?.map((item) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
@@ -69,17 +69,17 @@ const Carousel = ({ data, loading, endpoint, title }) => {
               return (
                 <div
                   key={item.id}
-                  className="carouselItem"
+                  className="carousel__item"
                   onClick={() =>
                     navigate(`/${item.media_type || endpoint}/${item.id}`)
                   }
                 >
                   <div className="posterBlock">
-                    <Image src={posterUrl} />
+                    <Image src={posterUrl} alt={item.title || item.name} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
                     <Genres data={item.genre_ids.slice(0, 2)} />
                   </div>
-                  <div className="textBlock">
+                  <div className="carousel__content">
                     <h4 className="title">{item.title || item.name}</h4>
                     <time className="date">
                       {dayjs(item.release_Date).format("MMM D, YYYY")}

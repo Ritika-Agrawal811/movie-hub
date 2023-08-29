@@ -1,10 +1,9 @@
-import React from "react";
-
+import PropTypes from "prop-types";
 import "./style.scss";
 
 const Spinner = ({ initial }) => {
   return (
-    <div className={`loadingSpinner ${initial ? "initial" : ""}`}>
+    <div className={`loading__spinner ${initial ? "initial" : ""}`}>
       <svg className="spinner" viewBox="0 0 50 50">
         <circle
           className="path"
@@ -17,6 +16,10 @@ const Spinner = ({ initial }) => {
       </svg>
     </div>
   );
+};
+
+Spinner.propTypes = {
+  initial: PropTypes.string,
 };
 
 export default Spinner;

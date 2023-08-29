@@ -1,0 +1,13 @@
+.circle__rating {
+  background-color: var(--black);
+  border-radius: 50%;
+  padding: 2px;
+}
+.circle__rating .CircularProgressbar-text {
+  font-size: 2em;
+  font-weight: 700;
+  fill: #fff;
+}
+.circle__rating .CircularProgressbar-trail {
+  stroke: transparent;
+}/*# sourceMappingURL=style.css.map */

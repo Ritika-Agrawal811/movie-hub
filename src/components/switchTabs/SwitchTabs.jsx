@@ -5,10 +5,11 @@ import "./style.scss";
 
 const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [left, setLeft] = useState(0);
+  const [left, setLeft] = useState("6px");
 
   const activeTab = (tab, index) => {
-    setLeft(index * 100);
+    setLeft(index * 100 + 6);
+
     setTimeout(() => {
       setSelectedTab(index);
     }, 300);
@@ -17,8 +18,8 @@ const SwitchTabs = ({ data, onTabChange }) => {
   };
 
   return (
-    <div className="switchingTabs">
-      <div className="tabItems">
+    <div className="switching__tabs">
+      <div className="tab__items">
         {data.map((tab, index) => (
           <span
             key={index}

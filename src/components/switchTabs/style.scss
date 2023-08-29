@@ -1,37 +1,70 @@
-.switchingTabs {
-  height: 34px;
-  background-color: white;
-  border-radius: 20px;
+@use "../../breakpoints" as *;
+@use "../../mixins" as *;
+
+.switching__tabs {
+  position: relative;
+  height: 2em;
   padding: 2px;
-  .tabItems {
-    display: flex;
-    align-items: center;
-    height: 30px;
+  border-radius: 100vmax;
+  background: var(--gradient);
+
+  @include sm {
+    height: 2.75em;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 98%;
+    height: 94%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--black);
+    border-radius: 100vmax;
+  }
+
+  .tab__items {
     position: relative;
+    height: 100%;
+
+    @include display-flex;
+
     .tabItem {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      color: var(--black);
-      font-size: 14px;
-      position: relative;
-      z-index: 1;
+      height: 90%;
+      width: 5em;
+      color: #fff;
+      font-size: 0.75em;
       cursor: pointer;
       transition: color ease 0.3s;
+      z-index: 1;
+
+      @include display-flex;
+
       &.active {
-        color: white;
+        color: #000;
+        font-weight: 700;
+      }
+
+      @include sm {
+        width: 7em;
+        font-size: 0.9375em;
       }
     }
+
     .movingBg {
-      height: 30px;
-      width: 100px;
-      border-radius: 15px;
-      background-image: var(--gradient);
       position: absolute;
-      left: 0;
+      height: 1.75em;
+      width: 4em;
+      left: 3px;
+      border-radius: 100vmax;
+      background-image: var(--gradient);
       transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+
+      @include sm {
+        height: 2em;
+        width: 5.625em;
+      }
     }
   }
 }

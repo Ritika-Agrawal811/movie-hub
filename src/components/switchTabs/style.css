@@ -1,0 +1,67 @@
+.switching__tabs {
+  position: relative;
+  height: 2em;
+  padding: 2px;
+  border-radius: 100vmax;
+  background: var(--gradient);
+}
+@media only screen and (min-width: 640px) {
+  .switching__tabs {
+    height: 2.75em;
+  }
+}
+.switching__tabs::before {
+  content: "";
+  position: absolute;
+  width: 98%;
+  height: 94%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  border-radius: 100vmax;
+}
+.switching__tabs .tab__items {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.switching__tabs .tab__items .tabItem {
+  height: 90%;
+  width: 5em;
+  color: #fff;
+  font-size: 0.75em;
+  cursor: pointer;
+  transition: color ease 0.3s;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.switching__tabs .tab__items .tabItem.active {
+  color: #000;
+  font-weight: 700;
+}
+@media only screen and (min-width: 640px) {
+  .switching__tabs .tab__items .tabItem {
+    width: 7em;
+    font-size: 0.9375em;
+  }
+}
+.switching__tabs .tab__items .movingBg {
+  position: absolute;
+  height: 1.75em;
+  width: 4em;
+  left: 3px;
+  border-radius: 100vmax;
+  background-image: var(--gradient);
+  transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+}
+@media only screen and (min-width: 640px) {
+  .switching__tabs .tab__items .movingBg {
+    height: 2em;
+    width: 5.625em;
+  }
+}/*# sourceMappingURL=style.css.map */

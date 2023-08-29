@@ -44,7 +44,6 @@ const Footer = () => {
           <ul className="menu__list">
             <li className="menuItem">About</li>
             <li className="menuItem">Blog</li>
-            <li className="menuItem">FAQ</li>
             <li className="menuItem">Terms of Use</li>
             <li className="menuItem">Privacy Policy</li>
           </ul>
@@ -54,9 +53,7 @@ const Footer = () => {
           <p>All Park Avenue</p>
           <p>East, 21st Street</p>
           <p>San Francisco</p>
-          <p>
-            <span>Email:</span> help@moviehub.com
-          </p>
+          <p>Email: help@moviehub.com</p>
           <div className="socialIcons">
             <span className="icon">
               <FaFacebookF />
