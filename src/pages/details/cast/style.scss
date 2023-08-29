@@ -1,4 +1,5 @@
-@import "../../../mixins.scss";
+@use "../../../breakpoints" as *;
+
 .castSection {
   position: relative;
   margin-bottom: 50px;

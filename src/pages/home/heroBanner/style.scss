@@ -1,21 +1,22 @@
-@import "../../../mixins.scss";
+@use "../../../breakpoints" as *;
+@use "../../../mixins" as *;
 
-.heroBanner {
+.hero-banner {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 28em;
   background-color: var(--black);
-  display: flex;
-  align-items: center;
+
+  @include display-flex;
 
   @include md {
     min-height: 100vh;
   }
 
   .backdrop-img {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
     top: 0;
     left: 0;
     opacity: 0.5;
@@ -29,7 +30,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
       }
     }
   }
@@ -39,24 +39,27 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 250px;
-    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 80%);
+    height: 10em;
+    background: linear-gradient(180deg, transparent 0%, #04152d 80%);
   }
 
-  .heroBannerContent {
+  .hero-banner__content {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    color: #fff;
+    flex-direction: column;
+
+    @include display-flex;
 
     .title {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.25em;
+
+      @include sm {
+        font-size: 3rem;
+      }
 
       @include md {
         font-size: 4rem;
@@ -64,10 +67,16 @@
     }
 
     .subTitle {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 500;
       margin-bottom: 2em;
+      text-align: center;
       line-height: 1.5;
+      color: var(--yellow);
+
+      @include sm {
+        font-size: 1.15rem;
+      }
 
       @include md {
         font-size: 1.25rem;
@@ -77,11 +86,20 @@
 
   .searchInput {
     position: relative;
-    display: flex;
-    align-items: center;
     width: 100%;
+    height: 2rem;
     max-width: 800px;
     margin: 0 auto;
+
+    @include display-flex;
+
+    @include md {
+      height: 2.5em;
+    }
+
+    @include lg {
+      height: 3em;
+    }
 
     label {
       position: absolute;
@@ -90,34 +108,32 @@
 
     input {
       width: calc(100% - 5em);
-      height: 2rem;
+      height: 100%;
+      padding: 0 1em;
+      font-size: 0.75rem;
+      border-radius: 2em 0 0 2em;
       background-color: #fff;
       border: 0;
       outline: 0;
-      padding: 0 1em;
-      border-radius: 2em 0 0 2em;
-      font-size: 0.75rem;
 
       @include md {
         width: calc(100% - 8em);
-        height: 3em;
         font-size: 1rem;
       }
     }
 
     button {
       width: 5em;
-      height: 2rem;
-      border-radius: 0 2em 2em 0;
-      border: 0;
-      background: var(--gradient);
+      height: 100%;
       font-size: 0.75rem;
       font-weight: 700;
+      border-radius: 0 2em 2em 0;
+      background: var(--gradient);
+      border: 0;
       cursor: pointer;
 
       @include md {
         width: 8em;
-        height: 3em;
         font-size: 1rem;
       }
     }

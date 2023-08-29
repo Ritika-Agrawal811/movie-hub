@@ -1,101 +1,127 @@
-@import "../../mixins.scss";
+@use "../../breakpoints" as *;
+@use "../../mixins" as *;
 
-.header {
+.page__header {
   position: fixed;
   transform: translateY(0);
   width: 100%;
-  height: 60px;
-  z-index: 1;
-  display: flex;
-  align-items: center;
+  height: 4.25em;
   transition: all ease 0.5s;
   z-index: 2;
+
+  @include display-flex;
+
   &.top {
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(3.5px);
     -webkit-backdrop-filter: blur(3.5px);
   }
+
   &.show {
     background-color: var(--black3);
   }
+
   &.hide {
     transform: translateY(-60px);
   }
 
-  .contentWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .content__wrapper {
+    @include display-flex(space-between);
   }
+
   .logo {
     cursor: pointer;
+
+    @include display-flex(flex-start);
+
     img {
-      height: 50px;
+      height: 3em;
+    }
+
+    a {
+      color: var(--yellow);
+      font-size: 1.5rem;
     }
   }
-  .menuItems {
+
+  .menu__list {
     list-style-type: none;
     display: none;
-    align-items: center;
+
     @include md {
-      display: flex;
+      @include display-flex;
     }
+
     .menuItem {
-      height: 60px;
-      display: flex;
-      align-items: center;
-      margin: 0 15px;
-      color: white;
+      height: 4.25em;
+      margin: 0 1em;
+      color: #fff;
       font-weight: 500;
-      position: relative;
-      &.searchIcon {
-        margin-right: 0;
-      }
-      svg {
-        font-size: 18px;
-      }
       cursor: pointer;
+
+      @include display-flex;
+
+      svg {
+        font-size: 1.25em;
+      }
+
+      a {
+        color: #fff;
+      }
+
       &:hover {
-        color: var(--pink);
+        color: var(--yellow);
+        a {
+          color: var(--yellow);
+        }
       }
     }
   }
 
-  .mobileMenuItems {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  .mobile__menu-list {
+    gap: 1em;
+
+    @include display-flex;
+
+    @include sm {
+      padding: 0 1em;
+    }
+
     @include md {
       display: none;
     }
+
     svg {
-      font-size: 18px;
+      font-size: 1.25em;
       color: white;
     }
   }
 
-  &.mobileView {
+  &.mobile__view {
     background: var(--black3);
-    .menuItems {
+
+    .menu__list {
       display: flex;
       position: absolute;
-      top: 60px;
+      top: 4.25em;
       left: 0;
       background: var(--black3);
       flex-direction: column;
       width: 100%;
-      padding: 20px 0;
+      padding: 1em 0;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       animation: mobileMenu 0.3s ease forwards;
+
       .menuItem {
-        font-size: 20px;
+        font-size: 1.105em;
         width: 100%;
         height: auto;
-        padding: 15px 20px;
+        padding: 1em;
         margin: 0;
-        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+
+        @include display-flex(center, flex-start);
+
         &:last-child {
           display: none;
         }
@@ -104,24 +130,30 @@
   }
 
   .searchBar {
-    width: 100%;
-    height: 60px;
-    background-color: white;
     position: absolute;
-    top: 60px;
+    top: 4.25em;
+    width: 100%;
+    height: 4em;
+    background-color: #fff;
     animation: mobileMenu 0.3s ease forwards;
 
+    @include display-flex;
+
     .searchInput {
-      position: realtive;
-      display: flex;
-      align-items: center;
-      height: 40px;
-      margin-top: 10px;
+      position: relative;
       width: 100%;
+      height: 3em;
+
+      @include display-flex;
+
+      @include sm {
+        padding: 0 1em;
+      }
+
       svg {
-        font-size: 20px;
+        font-size: 1.25em;
+        margin-left: 0.75em;
         flex-shrink: 0;
-        margin-left: 10px;
         cursor: pointer;
       }
 
@@ -132,17 +164,14 @@
 
       input {
         width: 100%;
-        height: 50px;
-        background-color: white;
-        outline: 0;
+        height: 100%;
+        background-color: transparent;
+        font-size: 0.85rem;
         border: 0;
-        border-radius: 30px 0 0 30px;
-        padding: 0 15px;
-        font-size: 14px;
+        outline: 0;
+
         @include md {
-          height: 60px;
-          font-size: 20px;
-          padding: 0 30px;
+          font-size: 1.05rem;
         }
       }
     }

@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-import ContentWrapper from "../contentWrapper/ContentWrapper";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 import "./style.scss";
 import logo from "../../assets/movix-logo.svg";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
 
 const Header = () => {
   const [show, setShow] = useState("top");
@@ -59,36 +59,31 @@ const Header = () => {
     }
   };
 
-  const navigationHandler = (type) => {
-    if (type === "movie") {
-      navigate("/explore/movie");
-    } else {
-      navigate("/explore/tv");
-    }
-
-    setMobileMenu(false);
-  };
-
   return (
-    <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
+    <header
+      className={`page__header ${mobileMenu ? "mobile__view" : ""} ${show}`}
+    >
       <ContentWrapper>
-        <div className="logo" onClick={() => navigate("/")}>
+        <div className="logo">
           <img src={logo} alt="MovieHub Logo" />
+          <p>
+            <Link to="/">MovieHub</Link>
+          </p>
         </div>
         <nav>
-          <ul className="menuItems">
-            <li className="menuItem" onClick={() => navigationHandler("movie")}>
-              Movies
+          <ul className="menu__list">
+            <li className="menuItem">
+              <Link to="/explore/movie">Movies</Link>
             </li>
-            <li className="menuItem" onClick={() => navigationHandler("tv")}>
-              TV Shows
+            <li className="menuItem">
+              <Link to="/explore/tv">TV Shows</Link>
             </li>
             <li className="menuItem">
               <HiOutlineSearch onClick={openSearch} />
             </li>
           </ul>
 
-          <div className="mobileMenuItems">
+          <div className="mobile__menu-list">
             <HiOutlineSearch onClick={openSearch} />
             {mobileMenu ? (
               <VscChromeClose onClick={() => setMobileMenu(false)} />
@@ -106,7 +101,7 @@ const Header = () => {
               <label>Search for a movie for tv show</label>
               <input
                 type="search"
-                placeholder="Search for a movie or tv show..."
+                placeholder="Search for a Movie or TV show..."
                 value={query}
                 onKeyUp={searchQueryHandler}
                 onChange={(e) => setQuery(e.target.value)}

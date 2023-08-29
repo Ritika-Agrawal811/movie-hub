@@ -11,8 +11,8 @@ const HeroBanner = () => {
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
   const { data, loading } = useFetch("/movie/upcoming");
-  const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const bgImage =
@@ -28,7 +28,7 @@ const HeroBanner = () => {
   };
 
   return (
-    <section className="heroBanner">
+    <section className="hero-banner">
       {!loading && (
         <div className="backdrop-img">
           <Image src={background} />
@@ -36,7 +36,7 @@ const HeroBanner = () => {
       )}
       <div className="opacity-layer"></div>
       <ContentWrapper>
-        <div className="heroBannerContent">
+        <div className="hero-banner__content">
           <h1 className="title">Welcome</h1>
           <p className="subTitle">
             Millions of movies, TV shows and people to discover. Explore now.
@@ -46,7 +46,7 @@ const HeroBanner = () => {
           <label>Search for a movie for tv show</label>
           <input
             type="search"
-            placeholder="Search for a movie or tv show..."
+            placeholder="Search for a Movie or TV show..."
             value={query}
             onKeyUp={searchQueryHandler}
             onChange={(e) => setQuery(e.target.value)}

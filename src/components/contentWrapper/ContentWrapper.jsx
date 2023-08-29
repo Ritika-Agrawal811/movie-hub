@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./style.scss";
 
 const ContentWrapper = ({ children }) => {
-  return <div className="contentWrapper">{children}</div>;
+  return <div className="content__wrapper">{children}</div>;
 };
 
 ContentWrapper.propTypes = {

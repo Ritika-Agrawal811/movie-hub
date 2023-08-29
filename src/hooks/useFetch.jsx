@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { fetchDataFromApi } from "../utils/api";
+import client from "../utils/api";
 
-const useFetch = (url) => {
+const useFetch = (url, params) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,9 +13,10 @@ const useFetch = (url) => {
 
     const getData = async () => {
       try {
-        const response = await fetchDataFromApi(url);
-
-        setData(response);
+        const { data } = await client.get(url, {
+          params,
+        });
+        setData(data);
       } catch (error) {
         setLoading(false);
         setError(error.message);
@@ -25,7 +26,7 @@ const useFetch = (url) => {
     };
 
     getData();
-  }, [url]);
+  }, [url, params]);
 
   return { data, loading, error };
 };

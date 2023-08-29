@@ -6,6 +6,11 @@ const headers = {
   Authorization: `Bearer ${TMDB_TOKEN}`,
 };
 
+const client = axios.create({
+  baseURL: BASE_URL,
+  headers,
+});
+
 export const fetchDataFromApi = async (url, params) => {
   try {
     const { data } = await axios.get(BASE_URL + url, {
@@ -14,7 +19,8 @@ export const fetchDataFromApi = async (url, params) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
     return error;
   }
 };
+
+export default client;

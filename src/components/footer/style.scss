@@ -1,68 +1,190 @@
-@import "../../mixins.scss";
-.footer {
+@use "../../breakpoints" as *;
+@use "../../mixins" as *;
+
+.page__footer {
   background-color: var(--black3);
-  padding: 50px 0;
-  color: white;
-  position: relative;
-  .contentWrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  padding: 3em 0 1em 0;
+  color: #fff;
+
+  @include md {
+    padding: 3em 0 2em 0;
   }
-  .menuItems {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+
+  .content__wrapper {
+    flex-direction: column;
+    @include display-flex(space-between);
+
     @include md {
-      margin-bottom: 30px;
-      gap: 30px;
+      flex-direction: row;
     }
+  }
+
+  .logo {
+    cursor: pointer;
+
+    @include display-flex(flex-start);
+
+    img {
+      height: 3em;
+    }
+
+    a {
+      color: var(--yellow);
+      font-size: 1.5rem;
+    }
+  }
+
+  .company__info {
+    color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    padding: 0 1em;
+    margin: 1em 0;
+    font-size: 0.75rem;
+    line-height: 1.5;
+
+    @include md {
+      width: 85%;
+      font-size: 0.95rem;
+    }
+  }
+
+  .col {
+    @include md {
+      width: 20%;
+    }
+
+    &.company__details {
+      @include md {
+        width: 60%;
+      }
+    }
+  }
+
+  .menu__list {
+    list-style-type: none;
+    gap: 0.5em;
+
+    @include display-flex;
+
+    &:nth-child(1) {
+      margin-bottom: 1em;
+    }
+
+    @include md {
+      flex-direction: column;
+      @include display-flex(center, flex-start);
+    }
+
     .menuItem {
+      font-size: 0.75rem;
       transition: all ease 0.3s;
       cursor: pointer;
-      font-size: 12px;
+
       @include md {
-        font-size: 16px;
+        font-size: 0.9em;
       }
+
       &:hover {
-        color: var(--pink);
+        color: var(--yellow);
+
+        a {
+          color: var(--yellow);
+        }
+      }
+
+      a {
+        color: #fff;
       }
     }
   }
-  .infoText {
-    font-size: 12px;
-    line-height: 20px;
-    opacity: 0.5;
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 20px;
+
+  .company__contact-block {
+    margin: 2em 0;
+
     @include md {
-      font-size: 14px;
-      margin-bottom: 30px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 0.5em;
+
+      @include md {
+        margin-bottom: 0.5em;
+        text-align: left;
+      }
+
+      @include lg {
+        font-size: 1rem;
+      }
+
+      span {
+        font-weight: 700;
+      }
     }
   }
+
   .socialIcons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 0.75em;
+    margin-top: 2em;
+
+    @include display-flex(space-between);
+
+    @include md {
+      margin-top: 1em;
+      gap: 0.5em;
+    }
+
+    @include lg {
+      gap: 0.75rem;
+    }
+
     .icon {
-      width: 50px;
-      height: 50px;
+      width: 2.5em;
+      height: 2.5em;
+      font-size: 1.05rem;
       border-radius: 50%;
       background-color: var(--black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       cursor: pointer;
       transition: all ease 0.3s;
+
+      @include display-flex;
+
       &:hover {
-        box-shadow: 0 0 0.625em var(--pink);
-        color: var(--pink);
+        background-color: var(--yellow);
+        color: var(--black3);
       }
+
+      @include md {
+        font-size: 0.85rem;
+      }
+
+      @include lg {
+        font-size: 1.15rem;
+      }
+    }
+  }
+
+  hr {
+    margin: 1em 0;
+
+    @include md {
+      margin: 2em 0;
+    }
+  }
+
+  .company__copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+
+    @include md {
+      text-align: right;
+    }
+
+    @include lg {
+      font-size: 1rem;
     }
   }
 }
