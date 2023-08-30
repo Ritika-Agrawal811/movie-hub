@@ -58,8 +58,8 @@ const VideosSection = ({ data, loading }) => {
       <VideoPopup
         show={show}
         setShow={setShow}
-        videoId={videoID}
-        setVideoId={setVideoID}
+        videoID={videoID}
+        setVideoID={setVideoID}
       />
     </div>
   );

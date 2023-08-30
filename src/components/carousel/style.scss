@@ -8,8 +8,6 @@
     position: relative;
     margin-top: 2em;
 
-    @include display-flex;
-
     @include xl {
       padding: 0;
     }
@@ -148,9 +146,7 @@
           overflow: hidden;
 
           img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            @include object-cover;
           }
         }
 

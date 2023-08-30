@@ -5,7 +5,12 @@
   border-radius: 100vmax;
   background: var(--gradient);
 }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
+  .switching__tabs {
+    height: 2.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
   .switching__tabs {
     height: 2.75em;
   }
@@ -14,7 +19,7 @@
   content: "";
   position: absolute;
   width: 98%;
-  height: 94%;
+  height: 92%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -30,9 +35,9 @@
 }
 .switching__tabs .tab__items .tabItem {
   height: 90%;
-  width: 5em;
+  width: 5.75em;
   color: #fff;
-  font-size: 0.75em;
+  font-size: 0.65em;
   cursor: pointer;
   transition: color ease 0.3s;
   z-index: 1;
@@ -44,24 +49,37 @@
   color: #000;
   font-weight: 700;
 }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
   .switching__tabs .tab__items .tabItem {
-    width: 7em;
-    font-size: 0.9375em;
+    width: 6em;
+    font-size: 0.85em;
+    border-radius: 100vmax;
   }
 }
-.switching__tabs .tab__items .movingBg {
+@media only screen and (min-width: 1024px) {
+  .switching__tabs .tab__items .tabItem {
+    width: 7em;
+    font-size: 0.9em;
+  }
+}
+.switching__tabs .tab__items .gradient__background {
   position: absolute;
-  height: 1.75em;
-  width: 4em;
-  left: 3px;
+  height: 1.5em;
+  width: 58px;
+  left: 0;
   border-radius: 100vmax;
   background-image: var(--gradient);
   transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
 }
-@media only screen and (min-width: 640px) {
-  .switching__tabs .tab__items .movingBg {
+@media only screen and (min-width: 768px) {
+  .switching__tabs .tab__items .gradient__background {
+    height: 1.75em;
+    width: 78px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .switching__tabs .tab__items .gradient__background {
     height: 2em;
-    width: 5.625em;
+    width: 90px;
   }
 }/*# sourceMappingURL=style.css.map */

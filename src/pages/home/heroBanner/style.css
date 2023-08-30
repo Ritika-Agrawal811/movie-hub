@@ -120,6 +120,7 @@
   .hero-banner .searchInput input {
     width: calc(100% - 8em);
     font-size: 1rem;
+    padding: 0 2em;
   }
 }
 .hero-banner .searchInput button {
