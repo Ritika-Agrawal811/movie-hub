@@ -13,10 +13,12 @@ const TopRated = () => {
   };
 
   return (
-    <section className="carouselSection">
+    <section className="carousel">
       <ContentWrapper>
-        <h2 className="carouselTitle">Top Rated</h2>
-        <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
+        <div className="carousel__header">
+          <h2 className="carousel__title">Top Rated</h2>
+          <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
+        </div>
       </ContentWrapper>
       <Carousel data={data?.results} loading={loading} endpoint={endpoint} />
     </section>

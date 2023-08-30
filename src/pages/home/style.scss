@@ -1,15 +1,22 @@
-.carouselSection {
+@use "../../mixins" as *;
+
+.carousel {
   position: relative;
-  margin-bottom: 70px;
-  & > .content__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  margin-bottom: 4em;
+
+  .content__wrapper {
+    margin-bottom: 1em;
+    flex-direction: column;
+    @include display-flex(space-between, flex-start);
   }
-  .carouselTitle {
-    font-size: 24px;
-    color: white;
-    font-weight: normal;
+
+  .carousel__header {
+    width: 100%;
+
+    @include display-flex(space-between);
+
+    h2 {
+      margin: 0;
+    }
   }
 }

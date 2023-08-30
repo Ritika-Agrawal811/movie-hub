@@ -1,15 +1,20 @@
-.carouselSection {
+.carousel {
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 4em;
 }
-.carouselSection > .content__wrapper {
+.carousel .content__wrapper {
+  margin-bottom: 1em;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.carousel .carousel__header {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
-.carouselSection .carouselTitle {
-  font-size: 24px;
-  color: white;
-  font-weight: normal;
+.carousel .carousel__header h2 {
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */
