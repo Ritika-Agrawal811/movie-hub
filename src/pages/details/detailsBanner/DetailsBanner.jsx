@@ -46,6 +46,7 @@ const DetailsBanner = ({ video, crew }) => {
                   <Image src={url.backdrop + data?.backdrop_path} />
                 </figure>
               </div>
+              <div className="opacity-layer"></div>
               <ContentWrapper>
                 <div className="content">
                   <div className="left">

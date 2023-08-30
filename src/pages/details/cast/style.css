@@ -1,111 +1,119 @@
-.castSection {
+.cast__section {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 2em;
 }
-.castSection .sectionHeading {
-  font-size: 24px;
-  color: white;
-  margin-bottom: 25px;
+.cast__section .heading {
+  font-size: 1.15rem;
+  color: var(--yellow);
+  margin-bottom: 1em;
+  font-weight: 400;
 }
-.castSection .listItems {
-  display: flex;
-  gap: 20px;
+@media only screen and (min-width: 768px) {
+  .cast__section .heading {
+    font-size: 1.5rem;
+  }
+}
+.cast__section .list__items {
   overflow-y: hidden;
-  margin-right: -20px;
-  margin-left: -20px;
-  padding: 0 20px;
+  padding: 0 1em;
+  gap: 1.5em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .listItems {
-    margin: 0;
-    padding: 0;
+  .cast__section .list__items {
+    gap: 2em;
   }
 }
-.castSection .listItems .listItem {
+@media only screen and (min-width: 1024px) {
+  .cast__section .list__items {
+    gap: 3em;
+  }
+}
+.cast__section .list__items .listItem {
   text-align: center;
-  color: white;
+  color: #fff;
 }
-.castSection .listItems .listItem .profileImg {
-  width: 125px;
-  height: 125px;
+.cast__section .list__items .listItem .cast__image {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  margin-bottom: 1em;
   overflow: hidden;
-  margin-bottom: 15px;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .listItems .listItem .profileImg {
-    width: 175px;
-    height: 175px;
-    margin-bottom: 25px;
+  .cast__section .list__items .listItem .cast__image {
+    width: 150px;
+    height: 150px;
   }
 }
-.castSection .listItems .listItem .profileImg img {
+@media only screen and (min-width: 1280px) {
+  .cast__section .list__items .listItem .cast__image {
+    width: 170px;
+    height: 170px;
+  }
+}
+.cast__section .list__items .listItem .cast__image img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center top;
-     object-position: center top;
-  display: block;
 }
-.castSection .listItems .listItem .name {
-  font-size: 14px;
-  line-height: 20px;
+.cast__section .list__items .listItem .name {
+  font-size: 1rem;
   font-weight: 600;
+  margin-bottom: 0.5em;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .listItems .listItem .name {
-    font-size: 18px;
-    line-height: 24px;
+  .cast__section .list__items .listItem .name {
+    font-size: 1.15rem;
   }
 }
-.castSection .listItems .listItem .character {
-  font-size: 14px;
-  line-height: 20px;
-  opacity: 0.5;
+.cast__section .list__items .listItem .character {
+  font-size: 0.85rem;
+  color: var(--pink);
+  font-style: italic;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .listItems .listItem .character {
-    font-size: 16px;
-    line-height: 24px;
+  .cast__section .list__items .listItem .character {
+    font-size: 1rem;
   }
 }
-.castSection .castSkeleton {
+.cast__section .castSkeleton {
   display: flex;
-  gap: 20px;
+  gap: 1.5em;
+  margin: 0 1em;
+  padding: 0 1em;
   overflow-y: hidden;
-  margin-right: -20px;
-  margin-left: -20px;
-  padding: 0 20px;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .castSkeleton {
+  .cast__section .castSkeleton {
     margin: 0;
     padding: 0;
   }
 }
-.castSection .castSkeleton .skItem .circle {
-  width: 125px;
-  height: 125px;
+.cast__section .castSkeleton .skItem .circle {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 @media only screen and (min-width: 768px) {
-  .castSection .castSkeleton .skItem .circle {
-    width: 175px;
-    height: 175px;
-    margin-bottom: 25px;
+  .cast__section .castSkeleton .skItem .circle {
+    width: 170px;
+    height: 170px;
   }
 }
-.castSection .castSkeleton .skItem .row {
+.cast__section .castSkeleton .skItem .row {
   width: 100%;
-  height: 20px;
+  height: 1.5em;
   border-radius: 10px;
   margin-bottom: 10px;
 }
-.castSection .castSkeleton .skItem .row2 {
+.cast__section .castSkeleton .skItem .row2 {
   width: 75%;
-  height: 20px;
+  height: 1.5em;
   border-radius: 10px;
   margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */

@@ -19,7 +19,7 @@ const Spinner = ({ initial }) => {
 };
 
 Spinner.propTypes = {
-  initial: PropTypes.string,
+  initial: PropTypes.bool,
 };
 
 export default Spinner;

@@ -3,4 +3,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1em;
+}
+@media only screen and (min-width: 768px) {
+  .content__wrapper {
+    padding: 0 1.5em;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .content__wrapper {
+    padding: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

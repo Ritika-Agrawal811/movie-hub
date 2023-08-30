@@ -9,9 +9,9 @@ import avatar from "../../../assets/avatar.png";
 const Cast = ({ data, loading }) => {
   const { url } = useSelector((state) => state.home);
 
-  const skeleton = () => {
+  const skeleton = (value) => {
     return (
-      <div className="skItem">
+      <div className="skItem" key={value}>
         <div className="circle skeleton"></div>
         <div className="row skeleton"></div>
         <div className="row2 skeleton"></div>
@@ -19,11 +19,11 @@ const Cast = ({ data, loading }) => {
     );
   };
   return (
-    <div className="castSection">
+    <section className="cast__section">
       <ContentWrapper>
-        <div className="sectionHeading">Top Cast</div>
+        <h2 className="heading">Cast</h2>
         {!loading ? (
-          <div className="listItems">
+          <div className="list__items">
             {data?.map((item) => {
               let imgUrl = item.profile_path
                 ? url.profile + item.profile_path
@@ -31,27 +31,22 @@ const Cast = ({ data, loading }) => {
 
               return (
                 <div className="listItem" key={item.id}>
-                  <figure className="profileImg">
+                  <figure className="cast__image">
                     <Image src={imgUrl} />
                   </figure>
                   <h5 className="name">{item.name}</h5>
-                  <p className="chara">{item.character}</p>
+                  <p className="character">{item.character}</p>
                 </div>
               );
             })}
           </div>
         ) : (
           <div className="castSkeleton">
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
-            {skeleton()}
+            {[1, 2, 3, 4, 5].map((value) => skeleton(value))}
           </div>
         )}
       </ContentWrapper>
-    </div>
+    </section>
   );
 };
 

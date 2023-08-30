@@ -14,10 +14,14 @@
   }
 
   .carousel__title {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: var(--yellow);
     margin-bottom: 1em;
     font-weight: 400;
+
+    @include md {
+      font-size: 1.5rem;
+    }
   }
 
   .arrow {
@@ -46,7 +50,7 @@
   .carousel__left-arrow {
     left: 1em;
 
-    @include lg {
+    @include xl {
       left: 0.5em;
     }
   }
@@ -54,7 +58,7 @@
   .carousel__right-arrow {
     right: 1em;
 
-    @include lg {
+    @include xl {
       right: 0.5em;
     }
   }

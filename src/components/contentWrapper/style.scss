@@ -1,6 +1,16 @@
+@use "../../breakpoints" as *;
+
 .content__wrapper {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1em;
+
+  @include md {
+    padding: 0 1.5em;
+  }
+
+  @include xl {
+    padding: 0;
+  }
 }

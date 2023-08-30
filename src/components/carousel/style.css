@@ -11,10 +11,15 @@
   }
 }
 .carousel .carousel__title {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   color: var(--yellow);
   margin-bottom: 1em;
   font-weight: 400;
+}
+@media only screen and (min-width: 768px) {
+  .carousel .carousel__title {
+    font-size: 1.5rem;
+  }
 }
 .carousel .arrow {
   color: #000;
@@ -42,7 +47,7 @@
 .carousel .carousel__left-arrow {
   left: 1em;
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   .carousel .carousel__left-arrow {
     left: 0.5em;
   }
@@ -50,7 +55,7 @@
 .carousel .carousel__right-arrow {
   right: 1em;
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1280px) {
   .carousel .carousel__right-arrow {
     right: 0.5em;
   }
