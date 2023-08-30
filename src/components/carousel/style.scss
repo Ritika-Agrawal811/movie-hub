@@ -173,7 +173,7 @@
           display: none;
           position: relative;
 
-          @include md {
+          @include lg {
             flex-flow: wrap;
             @include display-flex(flex-end);
           }

@@ -170,7 +170,7 @@
   display: none;
   position: relative;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .carousel .carousel__items .carousel__item .posterBlock .genres__container {
     flex-flow: wrap;
     display: flex;

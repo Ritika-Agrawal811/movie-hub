@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import dayjs from "dayjs";
 import PropTypes from "prop-types";
+import dayjs from "dayjs";
 
 import "./style.scss";
 
@@ -19,8 +19,8 @@ const DetailsBanner = ({ video, crew }) => {
   const [show, setShow] = useState(false);
   const [videoID, setVideoID] = useState(null);
   const { mediaType, id } = useParams();
-  const { data, loading } = useFetch(`/${mediaType}/${id}`);
   const { url } = useSelector((state) => state.home);
+  const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
   const _genres = data?.genres?.map((item) => item.id);
   const director = crew?.filter((item) => item.job === "Director");
@@ -32,21 +32,20 @@ const DetailsBanner = ({ video, crew }) => {
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
-    return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
+    return `${hours}h ${minutes > 0 ? `${minutes}m` : ""}`;
   };
 
   return (
-    <section className="detailsBanner">
+    <section className="details__banner">
       {!loading ? (
         <>
           {!!data && (
             <>
               <div>
-                <div className="backdrop-img">
+                <figure className="backdrop__image">
                   <Image src={url.backdrop + data?.backdrop_path} />
-                </div>
+                </figure>
               </div>
-              <div className="opacity-layer"></div>
               <ContentWrapper>
                 <div className="content">
                   <div className="left">
