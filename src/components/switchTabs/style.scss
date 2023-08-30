@@ -8,7 +8,11 @@
   border-radius: 100vmax;
   background: var(--gradient);
 
-  @include sm {
+  @include md {
+    height: 2.25em;
+  }
+
+  @include lg {
     height: 2.75em;
   }
 
@@ -16,7 +20,7 @@
     content: "";
     position: absolute;
     width: 98%;
-    height: 94%;
+    height: 92%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -32,9 +36,9 @@
 
     .tabItem {
       height: 90%;
-      width: 5em;
+      width: 5.75em;
       color: #fff;
-      font-size: 0.75em;
+      font-size: 0.65em;
       cursor: pointer;
       transition: color ease 0.3s;
       z-index: 1;
@@ -46,24 +50,36 @@
         font-weight: 700;
       }
 
-      @include sm {
+      @include md {
+        width: 6em;
+        font-size: 0.85em;
+        // border: 2px solid red;
+        border-radius: 100vmax;
+      }
+
+      @include lg {
         width: 7em;
-        font-size: 0.9375em;
+        font-size: 0.9em;
       }
     }
 
-    .movingBg {
+    .gradient__background {
       position: absolute;
-      height: 1.75em;
-      width: 4em;
-      left: 3px;
+      height: 1.5em;
+      width: 58px;
+      left: 0;
       border-radius: 100vmax;
       background-image: var(--gradient);
       transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
 
-      @include sm {
+      @include md {
+        height: 1.75em;
+        width: 78px;
+      }
+
+      @include lg {
         height: 2em;
-        width: 5.625em;
+        width: 90px;
       }
     }
   }
