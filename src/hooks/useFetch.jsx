@@ -2,33 +2,36 @@ import { useEffect, useState } from "react";
 import client from "../utils/api";
 
 const useFetch = (url, params) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [response, setResponse] = useState({
+    data: null,
+    loading: true,
+    error: null,
+  });
 
   useEffect(() => {
-    setLoading(true);
-    setData(null);
-    setError(null);
+    setResponse({ data: null, loading: true, error: null });
 
     const getData = async () => {
       try {
         const { data } = await client.get(url, {
           params,
         });
-        setData(data);
+        setResponse((prev) => ({ ...prev, data }));
       } catch (error) {
-        setLoading(false);
-        setError(error.message);
+        setResponse((prev) => ({
+          ...prev,
+          loading: false,
+          error: error.message,
+        }));
       } finally {
-        setLoading(false);
+        setResponse((prev) => ({ ...prev, loading: false }));
       }
     };
 
     getData();
   }, [url, params]);
 
-  return { data, loading, error };
+  return { ...response };
 };
 
 export default useFetch;
