@@ -1,41 +1,50 @@
 @use "../../../breakpoints" as *;
+@use "../../../mixins" as *;
 
-.videosSection {
+.videos__wrapper {
   position: relative;
-  margin-bottom: 50px;
-  .sectionHeading {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 25px;
+  margin-bottom: 3em;
+
+  .heading {
+    font-size: 1.15rem;
+    color: var(--yellow);
+    margin-bottom: 1em;
+    font-weight: 400;
+
+    @include md {
+      font-size: 1.5rem;
+    }
   }
+
   .videos {
     display: flex;
-    gap: 10px;
+    gap: 0.5em;
     overflow-x: auto;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+
     @include md {
-      gap: 20px;
-      margin: 0;
-      padding: 0;
+      gap: 1em;
     }
+
     .videoItem {
       width: 150px;
       flex-shrink: 0;
+      cursor: pointer;
+
       @include md {
         width: 25%;
       }
-      cursor: pointer;
+
       .videoThumbnail {
-        margin-bottom: 15px;
+        margin-bottom: 1em;
         position: relative;
+
         img {
           width: 100%;
           display: block;
-          border-radius: 12px;
+          border-radius: 0.75em;
           transition: all 0.7s ease-in-out;
         }
+
         svg {
           position: absolute;
           top: 50%;
@@ -44,81 +53,81 @@
           width: 50px;
           height: 50px;
         }
+
         .triangle {
           stroke-dasharray: 240;
           stroke-dashoffset: 480;
-          stroke: white;
+          stroke: #fff;
           transform: translateY(0);
           transition: all 0.7s ease-in-out;
         }
+
         .circle {
-          stroke: white;
+          stroke: #fff;
           stroke-dasharray: 650;
           stroke-dashoffset: 1300;
           transition: all 0.5s ease-in-out;
         }
+
         &:hover {
           img {
             opacity: 0.5;
           }
+
           .triangle {
             stroke-dashoffset: 0;
             opacity: 1;
             stroke: var(--pink);
             animation: trailorPlay 0.7s ease-in-out;
           }
+
           .circle {
             stroke-dashoffset: 0;
             stroke: var(--pink);
           }
         }
       }
-      .videoTitle {
-        color: white;
-        font-size: 14px;
-        line-height: 20px;
-        @include md {
-          font-size: 16px;
-          line-height: 24px;
-        }
+
+      .video__title {
+        color: #fff;
+        font-size: 1em;
+        @include ellipsis(1);
       }
     }
   }
 
   .videoSkeleton {
     display: flex;
-    gap: 10px;
+    gap: 0.5em;
     overflow-x: auto;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
-    @include md {
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
+
     .skItem {
       width: 150px;
       flex-shrink: 0;
+
       @include md {
         width: 25%;
       }
+
       .thumb {
         width: 100%;
         aspect-ratio: 16 / 9;
-        border-radius: 12px;
-        margin-bottom: 10px;
+        border-radius: 0.75em;
+        margin-bottom: 1em;
       }
+
       .row {
-        height: 20px;
+        height: 1.5em;
         width: 100%;
-        border-radius: 10px;
-        margin-bottom: 10px;
+        border-radius: 0.75em;
+        margin-bottom: 1em;
       }
+
       .row2 {
-        height: 20px;
+        height: 1.5em;
         width: 75%;
-        border-radius: 10px;
+        border-radius: 0.75em;
+        margin-bottom: 1em;
       }
     }
   }

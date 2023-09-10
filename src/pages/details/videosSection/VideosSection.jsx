@@ -11,9 +11,9 @@ const VideosSection = ({ data, loading }) => {
   const [show, setShow] = useState(false);
   const [videoID, setVideoID] = useState(null);
 
-  const loadingSkeleton = () => {
+  const loadingSkeleton = (key) => {
     return (
-      <div className="skItem">
+      <div className="skItem" key={key}>
         <div className="thumb skeleton"></div>
         <div className="row skeleton"></div>
         <div className="row2 skeleton"></div>
@@ -22,9 +22,9 @@ const VideosSection = ({ data, loading }) => {
   };
 
   return (
-    <div className="videosSection">
+    <div className="videos__wrapper">
       <ContentWrapper>
-        <div className="sectionHeading">Official Videos</div>
+        <div className="heading">Official Videos</div>
         {!loading ? (
           <div className="videos">
             {data?.results?.map((video) => (
@@ -42,16 +42,13 @@ const VideosSection = ({ data, loading }) => {
                   />
                   <PlayIcon />
                 </div>
-                <h5 className="videoTitle">{video.name}</h5>
+                <h5 className="video__title">{video.name}</h5>
               </div>
             ))}
           </div>
         ) : (
           <div className="videoSkeleton">
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
+            {[1, 2, 3, 4].map((item) => loadingSkeleton(item))}
           </div>
         )}
       </ContentWrapper>

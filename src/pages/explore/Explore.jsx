@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Select from "react-select";
 
 import "./style.scss";
 
 import useFetch from "../../hooks/useFetch";
 import { fetchDataFromApi } from "../../utils/api";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Select from "react-select";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
@@ -33,17 +33,16 @@ const Explore = () => {
   const [genre, setGenre] = useState(null);
   const [sortby, setSortby] = useState(null);
   const { mediaType } = useParams();
-
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
 
-  const fetchInitialData = () => {
+  const fetchInitialData = useCallback(() => {
     setLoading(true);
     fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
       setData(res);
       setPageNum((prev) => prev + 1);
       setLoading(false);
     });
-  };
+  }, [mediaType]);
 
   const fetchNextPageData = () => {
     fetchDataFromApi(`/discover/${mediaType}?page=${pageNum}`, filters).then(
@@ -51,7 +50,7 @@ const Explore = () => {
         if (data?.results) {
           setData({
             ...data,
-            results: [...data?.results, ...res.results],
+            results: [...data.results, ...res.results],
           });
         } else {
           setData(res);
@@ -68,7 +67,7 @@ const Explore = () => {
     setSortby(null);
     setGenre(null);
     fetchInitialData();
-  }, [mediaType]);
+  }, [mediaType, fetchInitialData]);
 
   const onChange = (selectedItems, action) => {
     if (action.name === "sortby") {
@@ -96,10 +95,10 @@ const Explore = () => {
   };
 
   return (
-    <div className="explorePage">
+    <main className="explore__page">
       <ContentWrapper>
-        <div className="pageHeader">
-          <div className="pageTitle">
+        <section className="explore__header">
+          <div className="page__title">
             {mediaType === "tv" ? "Explore TV Shows" : "Explore Movies"}
           </div>
           <div className="filters">
@@ -111,8 +110,8 @@ const Explore = () => {
               options={genresData?.genres}
               getOptionLabel={(option) => option.name}
               getOptionValue={(option) => option.id}
-              onChange={onChange}
               placeholder="Select genres"
+              onChange={onChange}
               className="react-select-container genresDD"
               classNamePrefix="react-select"
             />
@@ -120,26 +119,26 @@ const Explore = () => {
               name="sortby"
               value={sortby}
               options={sortbyData}
-              onChange={onChange}
               isClearable={true}
               placeholder="Sort by"
+              onChange={onChange}
               className="react-select-container sortbyDD"
               classNamePrefix="react-select"
             />
           </div>
-        </div>
+        </section>
         {loading && <Spinner initial={true} />}
-        {!loading && (
+        {!loading && data && (
           <>
-            {data?.results?.length > 0 ? (
+            {data.results?.length > 0 ? (
               <InfiniteScroll
                 className="content"
-                dataLength={data?.results?.length || []}
+                dataLength={data.results?.length || []}
                 next={fetchNextPageData}
-                hasMore={pageNum <= data?.total_pages}
+                hasMore={pageNum <= data.total_pages}
                 loader={<Spinner />}
               >
-                {data?.results?.map((item, index) => {
+                {data.results?.map((item, index) => {
                   if (item.media_type === "person") return;
                   return (
                     <MovieCard key={index} data={item} mediaType={mediaType} />
@@ -152,7 +151,7 @@ const Explore = () => {
           </>
         )}
       </ContentWrapper>
-    </div>
+    </main>
   );
 };
 

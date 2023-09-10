@@ -48,7 +48,7 @@ const SearchResults = () => {
 
     setPageNum(1);
     fetchInitialData();
-  }, [query]);
+  }, [query, pageNum]);
 
   return (
     <section className="searchResultsPage">

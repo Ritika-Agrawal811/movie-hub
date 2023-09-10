@@ -36,24 +36,26 @@ const HeroBanner = () => {
       )}
       <div className="opacity-layer"></div>
       <ContentWrapper>
-        <div className="hero-banner__content">
+        <section className="hero-banner__content">
           <h1 className="title">Welcome</h1>
           <p className="subTitle">
             Millions of movies, TV shows and people to discover. Explore now.
           </p>
-        </div>
-        <div className="searchInput">
-          <label>Search for a movie for tv show</label>
+        </section>
+        <section className="searchInput">
+          <label htmlFor="searchField">Search for a movie for tv show</label>
           <input
             type="search"
             placeholder="Search for a Movie or TV show..."
+            id="searchField"
+            name="searchbox"
             value={query}
             onKeyUp={searchQueryHandler}
             onChange={(e) => setQuery(e.target.value)}
           />
 
           <button>Search</button>
-        </div>
+        </section>
       </ContentWrapper>
     </section>
   );

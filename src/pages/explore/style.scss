@@ -1,105 +1,131 @@
 @use "../../breakpoints" as *;
+@use "../../mixins" as *;
 
-.explorePage {
+.explore__page {
   min-height: 700px;
-  padding-top: 100px;
+  padding-top: 6em;
+
   .resultNotFound {
-    font-size: 24px;
+    font-size: 1.5em;
     color: var(--black-light);
   }
-  .pageHeader {
+
+  .content__wrapper {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .explore__header {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1em;
+    flex-direction: column;
+    @include display-flex(space-between);
+
     @include md {
       flex-direction: row;
     }
   }
-  .pageTitle {
-    font-size: 24px;
-    line-height: 34px;
-    color: white;
-    margin-bottom: 20px;
-    @include md {
-      margin-bottom: 0;
+
+  .page__title {
+    font-size: 1.15em;
+    color: #fff;
+
+    @include sm {
+      font-size: 1.25em;
+    }
+
+    @include lg {
+      font-size: 1.5em;
     }
   }
+
   .filters {
     display: flex;
-    gap: 10px;
     flex-direction: column;
+    gap: 0.75em;
+    width: 100%;
+
     @include md {
       flex-direction: row;
+      width: auto;
     }
+
     .react-select-container {
       &.genresDD {
         width: 100%;
+
         @include md {
           max-width: 500px;
           min-width: 250px;
         }
       }
+
       &.sortbyDD {
         width: 100%;
         flex-shrink: 0;
+
         @include md {
           width: 250px;
         }
       }
+
       .react-select__control {
         border: 0;
         outline: 0;
         box-shadow: none;
         background-color: var(--black-light);
         border-radius: 20px;
+
         .react-select__value-container {
           .react-select__placeholder,
           .react-select__input-container {
-            color: white;
+            color: #fff;
             margin: 0 10px;
           }
         }
+
         .react-select__single-value {
-          color: white;
+          color: #fff;
         }
+
         .react-select__multi-value {
           background-color: var(--black3);
           border-radius: 10px;
+
           .react-select__multi-value__label {
-            color: white;
+            color: #fff;
           }
+
           .react-select__multi-value__remove {
             background-color: transparent;
-            color: white;
+            color: #fff;
             cursor: pointer;
+
             &:hover {
               color: var(--black-lighter);
             }
           }
         }
       }
+
       .react-select__menu {
-        top: 40px;
+        top: 2.5em;
         margin: 0;
         padding: 0;
       }
     }
   }
   .content {
-    display: flex;
-    justify-content: space-between;
     flex-flow: row wrap;
-    // gap: 10px;
-    margin-bottom: 50px;
+    margin: 2em 0;
 
-    @include md {
-      // gap: 20px;
-    }
+    @include display-flex(space-between);
 
     .movieCard {
       .posterBlock {
-        margin-bottom: 30px;
+        margin-bottom: 2em;
       }
     }
   }
