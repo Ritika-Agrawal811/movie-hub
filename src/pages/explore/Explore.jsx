@@ -27,51 +27,56 @@ const sortbyData = [
 ];
 
 const Explore = () => {
-  const [data, setData] = useState(null);
-  const [pageNum, setPageNum] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [genre, setGenre] = useState(null);
-  const [sortby, setSortby] = useState(null);
   const { mediaType } = useParams();
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
+  const [selectData, setSelectData] = useState({ genre: null, sortby: null });
+  const [pageData, setPageData] = useState({
+    data: null,
+    pageNum: 1,
+    loading: false,
+  });
 
   const fetchInitialData = useCallback(() => {
-    setLoading(true);
+    setPageData((prev) => ({ ...prev, loading: true }));
     fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
-      setData(res);
-      setPageNum((prev) => prev + 1);
-      setLoading(false);
+      setPageData((prev) => ({
+        data: res,
+        loading: false,
+        pageNum: prev.pageNum + 1,
+      }));
     });
   }, [mediaType]);
 
   const fetchNextPageData = () => {
-    fetchDataFromApi(`/discover/${mediaType}?page=${pageNum}`, filters).then(
-      (res) => {
-        if (data?.results) {
-          setData({
-            ...data,
-            results: [...data.results, ...res.results],
-          });
-        } else {
-          setData(res);
-        }
-        setPageNum((prev) => prev + 1);
+    fetchDataFromApi(
+      `/discover/${mediaType}?page=${pageData.pageNum}`,
+      filters
+    ).then((res) => {
+      if (pageData.data?.results) {
+        setPageData((prev) => ({
+          ...prev,
+          data: {
+            ...prev.data,
+            results: [...prev.data.results, ...res.results],
+          },
+        }));
+      } else {
+        setPageData((prev) => ({ ...prev, data: res }));
       }
-    );
+      setPageData((prev) => ({ ...prev, pageNum: prev.pageNum + 1 }));
+    });
   };
 
   useEffect(() => {
     filters = {};
-    setData(null);
-    setPageNum(1);
-    setSortby(null);
-    setGenre(null);
+    setPageData((prev) => ({ ...prev, data: null, pageNum: 1 }));
+    setSelectData({ genre: null, sortby: null });
     fetchInitialData();
   }, [mediaType, fetchInitialData]);
 
   const onChange = (selectedItems, action) => {
     if (action.name === "sortby") {
-      setSortby(selectedItems);
+      setSelectData((prev) => ({ ...prev, sortby: selectedItems }));
       if (action.action !== "clear") {
         filters.sort_by = selectedItems.value;
       } else {
@@ -80,7 +85,7 @@ const Explore = () => {
     }
 
     if (action.name === "genres") {
-      setGenre(selectedItems);
+      setSelectData((prev) => ({ ...prev, genre: selectedItems }));
       if (action.action !== "clear") {
         let genreId = selectedItems.map((g) => g.id);
         genreId = JSON.stringify(genreId).slice(1, -1);
@@ -90,7 +95,7 @@ const Explore = () => {
       }
     }
 
-    setPageNum(1);
+    setPageData((prev) => ({ ...prev, pageNum: 1 }));
     fetchInitialData();
   };
 
@@ -105,7 +110,7 @@ const Explore = () => {
             <Select
               isMulti
               name="genres"
-              value={genre}
+              value={selectData.genre}
               closeMenuOnSelect={false}
               options={genresData?.genres}
               getOptionLabel={(option) => option.name}
@@ -117,7 +122,7 @@ const Explore = () => {
             />
             <Select
               name="sortby"
-              value={sortby}
+              value={selectData.sortby}
               options={sortbyData}
               isClearable={true}
               placeholder="Sort by"
@@ -127,18 +132,18 @@ const Explore = () => {
             />
           </div>
         </section>
-        {loading && <Spinner initial={true} />}
-        {!loading && data && (
+        {pageData.loading && <Spinner initial={true} />}
+        {!pageData.loading && pageData.data && (
           <>
-            {data.results?.length > 0 ? (
+            {pageData.data.results?.length > 0 ? (
               <InfiniteScroll
                 className="content"
-                dataLength={data.results?.length || []}
+                dataLength={pageData.data.results?.length || []}
                 next={fetchNextPageData}
-                hasMore={pageNum <= data.total_pages}
+                hasMore={pageData.pageNum <= pageData.data.total_pages}
                 loader={<Spinner />}
               >
-                {data.results?.map((item, index) => {
+                {pageData.data.results?.map((item, index) => {
                   if (item.media_type === "person") return;
                   return (
                     <MovieCard key={index} data={item} mediaType={mediaType} />
