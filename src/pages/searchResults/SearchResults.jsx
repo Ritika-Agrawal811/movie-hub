@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.scss";
@@ -11,65 +11,76 @@ import noResults from "../../assets/no-results.png";
 import Image from "../../components/lazyLoadImage/Image";
 
 const SearchResults = () => {
-  const [data, setData] = useState(null);
-  const [pageNum, setPageNum] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState({
+    data: null,
+    pageNum: 1,
+    loading: false,
+  });
   const { query } = useParams();
 
   const fetchNextPageData = () => {
-    setLoading(true);
-    fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
-      (res) => {
-        if (data.results) {
-          setData({
-            ...data,
-            results: [...data.results, ...res.results],
-          });
-        } else {
-          setData(res);
-        }
-        setPageNum((prev) => prev + 1);
-        setLoading(false);
+    setSearch((prev) => ({ ...prev, loading: true }));
+    fetchDataFromApi(
+      `/search/multi?query=${query}&page=${search.pageNum}`
+    ).then((res) => {
+      if (search.data.results) {
+        setSearch((prev) => ({
+          ...prev,
+          data: {
+            ...prev.data,
+            results: [...prev.data.results, ...res.results],
+          },
+        }));
+      } else {
+        setSearch((prev) => ({ ...prev, data: res }));
       }
-    );
+
+      setSearch((prev) => ({
+        ...prev,
+        pageNum: prev.pageNum + 1,
+        loading: false,
+      }));
+    });
   };
 
-  useEffect(() => {
-    const fetchInitialData = () => {
-      setLoading(true);
-      fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
-        (res) => {
-          setData(res);
-          setPageNum((prev) => prev + 1);
-          setLoading(false);
-        }
-      );
-    };
+  const fetchInitialData = useCallback(() => {
+    setSearch((prev) => ({ ...prev, loading: true }));
+    fetchDataFromApi(
+      `/search/multi?query=${query}&page=${search.pageNum}`
+    ).then((res) => {
+      setSearch((prev) => ({
+        data: res,
+        loading: false,
+        pageNum: prev.pageNum + 1,
+      }));
+    });
+  }, [query]);
 
-    setPageNum(1);
+  useEffect(() => {
+    setSearch((prev) => ({ ...prev, pageNum: 1 }));
     fetchInitialData();
-  }, [query, pageNum]);
+  }, [fetchInitialData]);
 
   return (
     <section className="searchResultsPage">
-      {loading && <Spinner initial={true} />}
-      {!loading && (
+      {search.loading && <Spinner initial={true} />}
+      {!search.loading && (
         <ContentWrapper>
-          {data?.results?.length > 0 ? (
+          {search.data?.results?.length > 0 ? (
             <>
-              <h3 className="pageTitle">
+              <h3 className="page__title">
                 {`Search ${
-                  data.total_results > 1 ? "results" : "result"
+                  search.data.total_results > 1 ? "results" : "result"
                 } of "${query}"`}
               </h3>
               <InfiniteScroll
                 className="content"
-                dataLength={data.results.length || []}
+                dataLength={search.data.results.length || []}
                 next={fetchNextPageData}
-                hasMore={pageNum <= data.total_pages}
+                hasMore={search.pageNum <= search.data.total_pages}
                 loader={<Spinner />}
               >
-                {data?.results?.map((item, index) => {
+                {search.data?.results?.map((item, index) => {
                   if (item.media_type === "person") return;
 
                   return <MovieCard key={index} data={item} />;
@@ -79,7 +90,7 @@ const SearchResults = () => {
           ) : (
             <>
               <Image src={noResults} />
-              <span className="resultNotFound">Sorry, Results not found!</span>
+              <span className="resultNotFound">Sorry, no results found!</span>
             </>
           )}
         </ContentWrapper>

@@ -1,29 +1,67 @@
 @use "../../breakpoints" as *;
+@use "../../mixins" as *;
 
 .searchResultsPage {
   min-height: 700px;
-  padding-top: 100px;
-  .resultNotFound {
-    font-size: 24px;
-    color: var(--black-light);
-  }
-  .pageTitle {
-    font-size: 24px;
-    line-height: 34px;
-    color: white;
-    margin-bottom: 25px;
-  }
-  .content {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-    margin-bottom: 50px;
-    @include md {
-      gap: 20px;
+  padding-top: 6em;
+
+  .content__wrapper {
+    flex-direction: column;
+    @include display-flex;
+
+    span.lazy-load-image-background {
+      text-align: center;
     }
+
+    img {
+      align-self: center;
+      @include object-cover(80%);
+
+      @include sm {
+        @include object-cover(60%);
+      }
+      @include md {
+        @include object-cover(50%);
+      }
+
+      @include lg {
+        @include object-cover(30%);
+      }
+    }
+  }
+
+  .resultNotFound {
+    font-size: 1em;
+    color: var(--black-light);
+
+    @include md {
+      font-size: 1.5em;
+    }
+  }
+
+  .page__title {
+    font-size: 1.15em;
+    margin-bottom: 1em;
+    color: #fff;
+
+    @include sm {
+      font-size: 1.25em;
+    }
+
+    @include lg {
+      font-size: 1.5em;
+    }
+  }
+
+  .content {
+    flex-flow: row wrap;
+    margin: 2em 0;
+
+    @include display-flex(space-between);
+
     .movieCard {
       .posterBlock {
-        margin-bottom: 20px;
+        margin-bottom: 2em;
       }
     }
   }
