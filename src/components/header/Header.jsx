@@ -81,10 +81,14 @@ const Header = () => {
         <nav>
           <ul className="menu__list">
             <li className="menuItem">
-              <Link to="/explore/movie">Movies</Link>
+              <Link to="/explore/movie" onClick={() => setMobileMenu(false)}>
+                Movies
+              </Link>
             </li>
             <li className="menuItem">
-              <Link to="/explore/tv">TV Shows</Link>
+              <Link to="/explore/tv" onClick={() => setMobileMenu(false)}>
+                TV Shows
+              </Link>
             </li>
             <li className="menuItem">
               <HiOutlineSearch onClick={openSearch} />
