@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
@@ -9,59 +9,67 @@ import logo from "../../assets/movix-logo.svg";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 
 const Header = () => {
-  const [show, setShow] = useState("top");
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [query, setQuery] = useState("");
-  const [showSearch, setShowSearch] = useState("");
+  const [scroll, setScroll] = useState({ class: "top", lastScrollY: 0 });
+  const [search, setSearch] = useState({ query: "", show: false });
   const navigate = useNavigate();
   const location = useLocation();
+  const searchInput = useRef(null);
 
   useEffect(() => {
     const controlNavbar = () => {
       if (window.scrollY > 200) {
-        if (window.scrollY > lastScrollY && !mobileMenu) {
-          setShow("hide");
+        if (window.scrollY > scroll.lastScrollY && !mobileMenu) {
+          setScroll((prev) => ({ ...prev, class: "hide" }));
         } else {
-          setShow("show");
+          setScroll((prev) => ({ ...prev, class: "show" }));
         }
       } else {
-        setShow("top");
+        setScroll((prev) => ({ ...prev, class: "top" }));
       }
-      setLastScrollY(window.scrollY);
+
+      setScroll((prev) => ({ ...prev, lastScrollY: window.scrollY }));
     };
 
     window.addEventListener("scroll", controlNavbar);
 
     return () => window.removeEventListener("scroll", controlNavbar);
-  }, [lastScrollY, mobileMenu]);
+  }, [scroll.lastScrollY, mobileMenu]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
+  useEffect(() => {
+    if (search.show && searchInput && searchInput.current) {
+      searchInput.current.focus();
+    }
+  }, [search.show]);
+
   const openSearch = () => {
     setMobileMenu(false);
-    setShowSearch(true);
+    setSearch((prev) => ({ ...prev, show: true }));
   };
 
   const openMobileMenu = () => {
     setMobileMenu(true);
-    setShowSearch(false);
+    setSearch((prev) => ({ ...prev, show: false }));
   };
 
   const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query) {
-      navigate(`/search/${query}`);
+    if (event.key === "Enter" && search.query) {
+      navigate(`/search/${search.query}`);
       setTimeout(() => {
-        setShowSearch(false);
-      }, 1000);
+        setSearch((prev) => ({ ...prev, query: "", show: false }));
+      }, 0);
     }
   };
 
   return (
     <header
-      className={`page__header ${mobileMenu ? "mobile__view" : ""} ${show}`}
+      className={`page__header ${mobileMenu ? "mobile__view" : ""} ${
+        scroll.class
+      }`}
     >
       <ContentWrapper>
         <div className="logo">
@@ -94,20 +102,28 @@ const Header = () => {
         </nav>
       </ContentWrapper>
 
-      {showSearch && (
+      {search.show && (
         <div className="searchBar">
           <ContentWrapper>
             <div className="searchInput">
-              <label>Search for a movie for tv show</label>
+              <label htmlFor="searchBox">Search for a movie for tv show</label>
               <input
-                type="search"
+                type="text"
                 placeholder="Search for a Movie or TV show..."
-                value={query}
+                id="searchBox"
+                role="search"
+                autoComplete="off"
+                ref={searchInput}
+                value={search.query}
                 onKeyUp={searchQueryHandler}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) =>
+                  setSearch((prev) => ({ ...prev, query: e.target.value }))
+                }
               />
 
-              <VscChromeClose onClick={() => setShowSearch(false)} />
+              <VscChromeClose
+                onClick={() => setSearch((prev) => ({ ...prev, show: false }))}
+              />
             </div>
           </ContentWrapper>
         </div>

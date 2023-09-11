@@ -30,10 +30,12 @@
 
   .page__title {
     font-size: 1.15em;
+    margin-bottom: 1em;
     color: #fff;
 
     @include sm {
       font-size: 1.25em;
+      margin-bottom: 0;
     }
 
     @include lg {

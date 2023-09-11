@@ -50,10 +50,12 @@ const Footer = () => {
         </div>
 
         <div className="col company__contact-block">
-          <p>All Park Avenue</p>
-          <p>East, 21st Street</p>
-          <p>San Francisco</p>
-          <p>Email: help@moviehub.com</p>
+          <address>
+            <p>All Park Avenue</p>
+            <p>East, 21st Street</p>
+            <p>San Francisco</p>
+            <p>Email: help@moviehub.com</p>
+          </address>
           <div className="socialIcons">
             <span className="icon">
               <FaFacebookF />

@@ -1,28 +1,78 @@
 .searchResultsPage {
   min-height: 700px;
-  padding-top: 100px;
+  padding-top: 6em;
 }
-.searchResultsPage .resultNotFound {
-  font-size: 24px;
-  color: var(--black-light);
-}
-.searchResultsPage .pageTitle {
-  font-size: 24px;
-  line-height: 34px;
-  color: white;
-  margin-bottom: 25px;
-}
-.searchResultsPage .content {
+.searchResultsPage .content__wrapper {
+  flex-direction: column;
   display: flex;
-  flex-flow: row wrap;
-  gap: 10px;
-  margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
 }
-@media only screen and (min-width: 768px) {
-  .searchResultsPage .content {
-    gap: 20px;
+.searchResultsPage .content__wrapper span.lazy-load-image-background {
+  text-align: center;
+}
+.searchResultsPage .content__wrapper img {
+  align-self: center;
+  width: 80%;
+  height: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media only screen and (min-width: 640px) {
+  .searchResultsPage .content__wrapper img {
+    width: 60%;
+    height: 60%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
+@media only screen and (min-width: 768px) {
+  .searchResultsPage .content__wrapper img {
+    width: 50%;
+    height: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .searchResultsPage .content__wrapper img {
+    width: 30%;
+    height: 30%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.searchResultsPage .resultNotFound {
+  font-size: 1em;
+  color: var(--black-light);
+}
+@media only screen and (min-width: 768px) {
+  .searchResultsPage .resultNotFound {
+    font-size: 1.5em;
+  }
+}
+.searchResultsPage .page__title {
+  font-size: 1.15em;
+  margin-bottom: 1em;
+  color: #fff;
+}
+@media only screen and (min-width: 640px) {
+  .searchResultsPage .page__title {
+    font-size: 1.25em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .searchResultsPage .page__title {
+    font-size: 1.5em;
+  }
+}
+.searchResultsPage .content {
+  flex-flow: row wrap;
+  margin: 2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .searchResultsPage .content .movieCard .posterBlock {
-  margin-bottom: 20px;
+  margin-bottom: 2em;
 }/*# sourceMappingURL=style.css.map */

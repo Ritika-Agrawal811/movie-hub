@@ -59,9 +59,9 @@ const Carousel = ({ data, loading, endpoint, title }) => {
           onClick={() => navigation("right")}
         />
 
-        {!loading ? (
-          <div className="carousel__items" ref={carouselContainer}>
-            {data?.map((item) => {
+        {!loading && data.length !== 0 ? (
+          <section className="carousel__items" ref={carouselContainer}>
+            {data.map((item) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
                 : PosterFallback;
@@ -88,7 +88,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                 </div>
               );
             })}
-          </div>
+          </section>
         ) : (
           <div className="loadingSkeleton">
             {[1, 2, 3, 4, 5].map((value) => skeletonItem(value))}

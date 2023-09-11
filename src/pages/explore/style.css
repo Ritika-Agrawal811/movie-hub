@@ -27,11 +27,13 @@
 }
 .explore__page .page__title {
   font-size: 1.15em;
+  margin-bottom: 1em;
   color: #fff;
 }
 @media only screen and (min-width: 640px) {
   .explore__page .page__title {
     font-size: 1.25em;
+    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 1024px) {

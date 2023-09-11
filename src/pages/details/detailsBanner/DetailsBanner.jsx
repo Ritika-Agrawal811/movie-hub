@@ -167,13 +167,9 @@ const DetailsBanner = ({ video, crew }) => {
           <ContentWrapper>
             <div className="left skeleton"></div>
             <div className="right">
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
-              <div className="row skeleton"></div>
+              {[1, 2, 3, 4, 5, 6, 7].map((item) => (
+                <div key={item} className="row skeleton"></div>
+              ))}
             </div>
           </ContentWrapper>
         </div>

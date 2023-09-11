@@ -4,16 +4,18 @@ import { useSelector } from "react-redux";
 
 const Genres = ({ data }) => {
   const { genres } = useSelector((state) => state.home);
+
   return (
     <div className="genres__container">
-      {data?.map((genreID) => {
-        if (!genres[genreID]?.name) return;
-        return (
-          <div className="genre" key={genreID}>
-            {genres[genreID]?.name}
-          </div>
-        );
-      })}
+      {data.length !== 0 &&
+        data.map((genreID) => {
+          if (!genres[genreID]?.name) return;
+          return (
+            <div className="genre" key={genreID}>
+              {genres[genreID]?.name}
+            </div>
+          );
+        })}
     </div>
   );
 };

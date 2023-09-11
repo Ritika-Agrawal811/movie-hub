@@ -15,7 +15,7 @@ const MovieCard = ({ data, mediaType }) => {
     : PosterFallback;
 
   return (
-    <div
+    <article
       className="movie__card"
       onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}
     >
@@ -28,7 +28,7 @@ const MovieCard = ({ data, mediaType }) => {
           {dayjs(data.release_date).format("MMM D, YYYY")}
         </time>
       </div>
-    </div>
+    </article>
   );
 };
 

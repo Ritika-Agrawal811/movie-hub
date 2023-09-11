@@ -5,32 +5,31 @@ import "./style.scss";
 import useWindowSize from "../../hooks/useWindowSize";
 
 const SwitchTabs = ({ data, onTabChange }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [left, setLeft] = useState(0);
+  const [currentTab, setCurrentTab] = useState({ index: 0, left: 0 });
   const { width } = useWindowSize();
 
   useEffect(() => {
     if (width < 768) {
-      setLeft("2px");
+      setCurrentTab((prev) => ({ ...prev, left: "2px" }));
     } else {
-      setLeft("4px");
+      setCurrentTab((prev) => ({ ...prev, left: "4px" }));
     }
   }, [width]);
 
   const activeTab = (tab, index) => {
     if (width < 768) {
       // setting left for mobile screens
-      setLeft(index * 58 + 2);
+      setCurrentTab((prev) => ({ ...prev, left: index * 58 + 2 }));
     } else if (width < 1024) {
       // setting left for tablet screens
-      setLeft(index * 78 + 4);
+      setCurrentTab((prev) => ({ ...prev, left: index * 78 + 4 }));
     } else {
       // setting left for desktop screens
-      setLeft(index * 100 + 6);
+      setCurrentTab((prev) => ({ ...prev, left: index * 100 + 6 }));
     }
 
     setTimeout(() => {
-      setSelectedTab(index);
+      setCurrentTab((prev) => ({ ...prev, index }));
     }, 300);
 
     onTabChange(tab, index);
@@ -42,13 +41,16 @@ const SwitchTabs = ({ data, onTabChange }) => {
         {data.map((tab, index) => (
           <span
             key={index}
-            className={`tabItem ${selectedTab === index ? "active" : ""}`}
+            className={`tabItem ${currentTab.index === index ? "active" : ""}`}
             onClick={() => activeTab(tab, index)}
           >
             {tab}
           </span>
         ))}
-        <span className="gradient__background" style={{ left }}></span>
+        <span
+          className="gradient__background"
+          style={{ left: currentTab.left }}
+        ></span>
       </div>
     </div>
   );

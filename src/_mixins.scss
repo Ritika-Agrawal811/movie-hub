@@ -12,8 +12,8 @@
   text-overflow: ellipsis;
 }
 
-@mixin object-cover {
-  width: 100%;
-  height: 100%;
+@mixin object-cover($percentage: 100%) {
+  width: $percentage;
+  height: $percentage;
   object-fit: cover;
 }

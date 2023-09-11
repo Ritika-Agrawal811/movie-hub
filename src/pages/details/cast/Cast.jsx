@@ -22,9 +22,9 @@ const Cast = ({ data, loading }) => {
     <section className="cast__section">
       <ContentWrapper>
         <h2 className="heading">Cast</h2>
-        {!loading ? (
+        {!loading && data.length !== 0 ? (
           <div className="list__items">
-            {data?.map((item) => {
+            {data.map((item) => {
               let imgUrl = item.profile_path
                 ? url.profile + item.profile_path
                 : avatar;

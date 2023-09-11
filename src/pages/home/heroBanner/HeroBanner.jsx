@@ -22,7 +22,7 @@ const HeroBanner = () => {
   }, [data, url.backdrop]);
 
   const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query) {
+    if ((event.type === "click" || event.key === "Enter") && query) {
       navigate(`/search/${query}`);
     }
   };
@@ -43,18 +43,19 @@ const HeroBanner = () => {
           </p>
         </section>
         <section className="searchInput">
-          <label htmlFor="searchField">Search for a movie for tv show</label>
+          <label htmlFor="searchField">Search for a movie or tv show</label>
           <input
-            type="search"
+            type="text"
             placeholder="Search for a Movie or TV show..."
             id="searchField"
             name="searchbox"
+            role="search"
             value={query}
             onKeyUp={searchQueryHandler}
             onChange={(e) => setQuery(e.target.value)}
           />
 
-          <button>Search</button>
+          <button onClick={searchQueryHandler}>Search</button>
         </section>
       </ContentWrapper>
     </section>
