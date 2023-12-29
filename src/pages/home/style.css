@@ -1,20 +1,20 @@
 .carousel {
-  position: relative;
-  margin-bottom: 4em;
+    position: relative;
+    margin-bottom: 4em;
 }
 .carousel .content__wrapper {
-  margin-bottom: 1em;
-  flex-direction: column;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+    margin-bottom: 1em;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 .carousel .carousel__header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .carousel .carousel__header h2 {
-  margin: 0;
-}/*# sourceMappingURL=style.css.map */
+    margin: 0;
+} /*# sourceMappingURL=style.css.map */

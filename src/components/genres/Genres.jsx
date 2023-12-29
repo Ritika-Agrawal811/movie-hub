@@ -1,27 +1,27 @@
-import "./style.scss";
-import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import "./style.scss"
+import PropTypes from "prop-types"
+import { useSelector } from "react-redux"
 
 const Genres = ({ data }) => {
-  const { genres } = useSelector((state) => state.home);
+    const { genres } = useSelector((state) => state.home)
 
-  return (
-    <div className="genres__container">
-      {data.length !== 0 &&
-        data.map((genreID) => {
-          if (!genres[genreID]?.name) return;
-          return (
-            <div className="genre" key={genreID}>
-              {genres[genreID]?.name}
-            </div>
-          );
-        })}
-    </div>
-  );
-};
+    return (
+        <div className='genres__container'>
+            {data.length !== 0 &&
+                data.map((genreID) => {
+                    if (!genres[genreID]?.name) return
+                    return (
+                        <div className='genre' key={genreID}>
+                            {genres[genreID]?.name}
+                        </div>
+                    )
+                })}
+        </div>
+    )
+}
 
 Genres.propTypes = {
-  data: PropTypes.array,
-};
+    data: PropTypes.array,
+}
 
-export default Genres;
+export default Genres

@@ -2,297 +2,297 @@
 @use "../../../mixins" as *;
 
 .details__banner {
-  background-color: var(--black);
-  padding-top: 6.25em;
-  margin-bottom: 3em;
-
-  @include md {
-    margin-bottom: 0;
-    padding-top: 7.5em;
-    min-height: 700px;
-  }
-
-  .backdrop__image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-    overflow: hidden;
-
-    .lazy-load-image-background {
-      width: 100%;
-      height: 100%;
-
-      img {
-        @include object-cover;
-      }
-    }
-  }
-
-  .opacity-layer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 10em;
-    background: linear-gradient(180deg, transparent 0%, #04152d 80%);
-  }
-
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
+    background-color: var(--black);
+    padding-top: 6.25em;
+    margin-bottom: 3em;
 
     @include md {
-      gap: 3em;
-      flex-direction: row;
+        margin-bottom: 0;
+        padding-top: 7.5em;
+        min-height: 700px;
     }
 
-    .left {
-      flex-shrink: 0;
-
-      .posterImg {
+    .backdrop__image {
+        position: absolute;
         width: 100%;
-        display: block;
-        border-radius: 0.8em;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+        overflow: hidden;
 
-        @include md {
-          max-width: 22em;
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            img {
+                @include object-cover;
+            }
         }
-      }
     }
 
-    .right {
-      color: #fff;
+    .opacity-layer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 10em;
+        background: linear-gradient(180deg, transparent 0%, #04152d 80%);
+    }
 
-      .title {
-        font-size: 1.5rem;
-        line-height: 1.35;
-
-        @include md {
-          font-size: 1.75em;
-          line-height: 1.25;
-        }
-
-        @include lg {
-          font-size: 2em;
-        }
-      }
-
-      .subtitle {
-        font-size: 1rem;
-        margin: 1em 0;
-        font-style: italic;
-        opacity: 0.5;
-
-        @include md {
-          font-size: 1.05rem;
-        }
-      }
-
-      .genres__container {
-        margin: 1em 0;
-        flex-flow: row wrap;
-        gap: 0.5em;
-
-        .genre {
-          font-size: 0.95rem;
-        }
-      }
-
-      .overview {
-        margin-bottom: 1.5em;
-
-        .heading {
-          font-size: 1.35rem;
-          margin-bottom: 0.5em;
-        }
-
-        .description {
-          line-height: 1.5;
-          opacity: 0.8;
-          font-size: 1rem;
-        }
-      }
-
-      .circle__rating {
-        max-width: 50px;
-        background-color: var(--black2);
-
-        @include md {
-          max-width: 60px;
-        }
-
-        .CircularProgressbar-text {
-          fill: #fff;
-        }
-      }
-
-      .playbtn {
-        gap: 0.5em;
-        cursor: pointer;
-
-        @include display-flex;
-
-        svg {
-          width: 45px;
-
-          @include md {
-            width: 55px;
-          }
-        }
-
-        .text {
-          font-size: 1.05rem;
-          transition: all 0.7s ease-in-out;
-
-          @include sm {
-            font-size: 1.15rem;
-          }
-
-          @include lg {
-            font-size: 1.25rem;
-          }
-        }
-
-        .triangle {
-          stroke-dasharray: 240;
-          stroke-dashoffset: 480;
-          stroke: #fff;
-          transform: translateY(0);
-          transition: all 0.7s ease-in-out;
-        }
-
-        .circle {
-          stroke: #fff;
-          stroke-dasharray: 650;
-          stroke-dashoffset: 1300;
-          transition: all 0.5s ease-in-out;
-        }
-
-        &:hover {
-          .text {
-            color: var(--pink);
-          }
-
-          .triangle {
-            stroke-dashoffset: 0;
-            opacity: 1;
-            stroke: var(--pink);
-            animation: trailorPlay 0.7s ease-in-out;
-          }
-
-          .circle {
-            stroke-dashoffset: 0;
-            stroke: var(--pink);
-          }
-        }
-      }
-
-      .row {
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
         gap: 1.5em;
-        margin-bottom: 1em;
 
-        @include display-flex(flex-start);
-      }
-
-      .info {
-        padding: 1em 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-        @include sm {
-          display: flex;
+        @include md {
+            gap: 3em;
+            flex-direction: row;
         }
 
-        .infoItem {
-          margin-right: 1em;
-          display: flex;
-          flex-flow: row wrap;
+        .left {
+            flex-shrink: 0;
 
-          &:not(:last-child) {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1em 0;
+            .posterImg {
+                width: 100%;
+                display: block;
+                border-radius: 0.8em;
 
-            @include sm {
-              border-bottom: 0;
-              padding: 0;
+                @include md {
+                    max-width: 22em;
+                }
             }
-          }
+        }
 
-          &:last-child {
-            padding-top: 1em;
+        .right {
+            color: #fff;
 
-            @include sm {
-              padding-top: 0;
+            .title {
+                font-size: 1.5rem;
+                line-height: 1.35;
+
+                @include md {
+                    font-size: 1.75em;
+                    line-height: 1.25;
+                }
+
+                @include lg {
+                    font-size: 2em;
+                }
             }
-          }
+
+            .subtitle {
+                font-size: 1rem;
+                margin: 1em 0;
+                font-style: italic;
+                opacity: 0.5;
+
+                @include md {
+                    font-size: 1.05rem;
+                }
+            }
+
+            .genres__container {
+                margin: 1em 0;
+                flex-flow: row wrap;
+                gap: 0.5em;
+
+                .genre {
+                    font-size: 0.95rem;
+                }
+            }
+
+            .overview {
+                margin-bottom: 1.5em;
+
+                .heading {
+                    font-size: 1.35rem;
+                    margin-bottom: 0.5em;
+                }
+
+                .description {
+                    line-height: 1.5;
+                    opacity: 0.8;
+                    font-size: 1rem;
+                }
+            }
+
+            .circle__rating {
+                max-width: 50px;
+                background-color: var(--black2);
+
+                @include md {
+                    max-width: 60px;
+                }
+
+                .CircularProgressbar-text {
+                    fill: #fff;
+                }
+            }
+
+            .playbtn {
+                gap: 0.5em;
+                cursor: pointer;
+
+                @include display-flex;
+
+                svg {
+                    width: 45px;
+
+                    @include md {
+                        width: 55px;
+                    }
+                }
+
+                .text {
+                    font-size: 1.05rem;
+                    transition: all 0.7s ease-in-out;
+
+                    @include sm {
+                        font-size: 1.15rem;
+                    }
+
+                    @include lg {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                .triangle {
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 480;
+                    stroke: #fff;
+                    transform: translateY(0);
+                    transition: all 0.7s ease-in-out;
+                }
+
+                .circle {
+                    stroke: #fff;
+                    stroke-dasharray: 650;
+                    stroke-dashoffset: 1300;
+                    transition: all 0.5s ease-in-out;
+                }
+
+                &:hover {
+                    .text {
+                        color: var(--pink);
+                    }
+
+                    .triangle {
+                        stroke-dashoffset: 0;
+                        opacity: 1;
+                        stroke: var(--pink);
+                        animation: trailorPlay 0.7s ease-in-out;
+                    }
+
+                    .circle {
+                        stroke-dashoffset: 0;
+                        stroke: var(--pink);
+                    }
+                }
+            }
+
+            .row {
+                gap: 1.5em;
+                margin-bottom: 1em;
+
+                @include display-flex(flex-start);
+            }
+
+            .info {
+                padding: 1em 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+                @include sm {
+                    display: flex;
+                }
+
+                .infoItem {
+                    margin-right: 1em;
+                    display: flex;
+                    flex-flow: row wrap;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                        padding: 1em 0;
+
+                        @include sm {
+                            border-bottom: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    &:last-child {
+                        padding-top: 1em;
+
+                        @include sm {
+                            padding-top: 0;
+                        }
+                    }
+                }
+
+                .text {
+                    margin-right: 1em;
+                    opacity: 0.5;
+                    line-height: 1.5;
+                    font-size: 0.95rem;
+
+                    &.bold {
+                        font-weight: 600;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 1.5em;
+
+        @include md {
+            gap: 3em;
+            flex-direction: row;
         }
 
-        .text {
-          margin-right: 1em;
-          opacity: 0.5;
-          line-height: 1.5;
-          font-size: 0.95rem;
-
-          &.bold {
-            font-weight: 600;
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-
-  .detailsBannerSkeleton {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    gap: 1.5em;
-
-    @include md {
-      gap: 3em;
-      flex-direction: row;
-    }
-
-    .content__wrapper {
-      display: flex;
-      gap: 3em;
-    }
-
-    .left {
-      display: block;
-      width: 100%;
-      flex-shrink: 0;
-      border-radius: 0.75em;
-      aspect-ratio: 1/1.5;
-
-      @include md {
-        max-width: 350px;
-      }
-    }
-
-    .right {
-      width: 100%;
-
-      .row {
-        width: 100%;
-        height: 1.75em;
-        margin-bottom: 1.75em;
-        border-radius: 3em;
-
-        &:nth-child(2) {
-          width: 75%;
-          margin-bottom: 3em;
+        .content__wrapper {
+            display: flex;
+            gap: 3em;
         }
 
-        &:nth-child(5) {
-          width: 50%;
-          margin-bottom: 3em;
+        .left {
+            display: block;
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 0.75em;
+            aspect-ratio: 1/1.5;
+
+            @include md {
+                max-width: 350px;
+            }
         }
-      }
+
+        .right {
+            width: 100%;
+
+            .row {
+                width: 100%;
+                height: 1.75em;
+                margin-bottom: 1.75em;
+                border-radius: 3em;
+
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 3em;
+                }
+
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 3em;
+                }
+            }
+        }
     }
-  }
 }

@@ -2,85 +2,85 @@
 @use "../../mixins" as *;
 
 .switching__tabs {
-  position: relative;
-  height: 2em;
-  padding: 2px;
-  border-radius: 100vmax;
-  background: var(--gradient);
-
-  @include md {
-    height: 2.25em;
-  }
-
-  @include lg {
-    height: 2.75em;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 98%;
-    height: 92%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--black);
-    border-radius: 100vmax;
-  }
-
-  .tab__items {
     position: relative;
-    height: 100%;
+    height: 2em;
+    padding: 2px;
+    border-radius: 100vmax;
+    background: var(--gradient);
 
-    @include display-flex;
+    @include md {
+        height: 2.25em;
+    }
 
-    .tabItem {
-      height: 90%;
-      width: 5.75em;
-      color: #fff;
-      font-size: 0.65em;
-      cursor: pointer;
-      transition: color ease 0.3s;
-      z-index: 1;
+    @include lg {
+        height: 2.75em;
+    }
 
-      @include display-flex;
-
-      &.active {
-        color: #000;
-        font-weight: 700;
-      }
-
-      @include md {
-        width: 6em;
-        font-size: 0.85em;
-        // border: 2px solid red;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 98%;
+        height: 92%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--black);
         border-radius: 100vmax;
-      }
-
-      @include lg {
-        width: 7em;
-        font-size: 0.9em;
-      }
     }
 
-    .gradient__background {
-      position: absolute;
-      height: 1.5em;
-      width: 58px;
-      left: 0;
-      border-radius: 100vmax;
-      background-image: var(--gradient);
-      transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+    .tab__items {
+        position: relative;
+        height: 100%;
 
-      @include md {
-        height: 1.75em;
-        width: 78px;
-      }
+        @include display-flex;
 
-      @include lg {
-        height: 2em;
-        width: 90px;
-      }
+        .tabItem {
+            height: 90%;
+            width: 5.75em;
+            color: #fff;
+            font-size: 0.65em;
+            cursor: pointer;
+            transition: color ease 0.3s;
+            z-index: 1;
+
+            @include display-flex;
+
+            &.active {
+                color: #000;
+                font-weight: 700;
+            }
+
+            @include md {
+                width: 6em;
+                font-size: 0.85em;
+                // border: 2px solid red;
+                border-radius: 100vmax;
+            }
+
+            @include lg {
+                width: 7em;
+                font-size: 0.9em;
+            }
+        }
+
+        .gradient__background {
+            position: absolute;
+            height: 1.5em;
+            width: 58px;
+            left: 0;
+            border-radius: 100vmax;
+            background-image: var(--gradient);
+            transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+
+            @include md {
+                height: 1.75em;
+                width: 78px;
+            }
+
+            @include lg {
+                height: 2em;
+                width: 90px;
+            }
+        }
     }
-  }
 }

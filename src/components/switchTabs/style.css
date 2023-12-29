@@ -1,85 +1,85 @@
 .switching__tabs {
-  position: relative;
-  height: 2em;
-  padding: 2px;
-  border-radius: 100vmax;
-  background: var(--gradient);
+    position: relative;
+    height: 2em;
+    padding: 2px;
+    border-radius: 100vmax;
+    background: var(--gradient);
 }
 @media only screen and (min-width: 768px) {
-  .switching__tabs {
-    height: 2.25em;
-  }
+    .switching__tabs {
+        height: 2.25em;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .switching__tabs {
-    height: 2.75em;
-  }
+    .switching__tabs {
+        height: 2.75em;
+    }
 }
 .switching__tabs::before {
-  content: "";
-  position: absolute;
-  width: 98%;
-  height: 92%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--black);
-  border-radius: 100vmax;
+    content: "";
+    position: absolute;
+    width: 98%;
+    height: 92%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--black);
+    border-radius: 100vmax;
 }
 .switching__tabs .tab__items {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .switching__tabs .tab__items .tabItem {
-  height: 90%;
-  width: 5.75em;
-  color: #fff;
-  font-size: 0.65em;
-  cursor: pointer;
-  transition: color ease 0.3s;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 90%;
+    width: 5.75em;
+    color: #fff;
+    font-size: 0.65em;
+    cursor: pointer;
+    transition: color ease 0.3s;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .switching__tabs .tab__items .tabItem.active {
-  color: #000;
-  font-weight: 700;
+    color: #000;
+    font-weight: 700;
 }
 @media only screen and (min-width: 768px) {
-  .switching__tabs .tab__items .tabItem {
-    width: 6em;
-    font-size: 0.85em;
-    border-radius: 100vmax;
-  }
+    .switching__tabs .tab__items .tabItem {
+        width: 6em;
+        font-size: 0.85em;
+        border-radius: 100vmax;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .switching__tabs .tab__items .tabItem {
-    width: 7em;
-    font-size: 0.9em;
-  }
+    .switching__tabs .tab__items .tabItem {
+        width: 7em;
+        font-size: 0.9em;
+    }
 }
 .switching__tabs .tab__items .gradient__background {
-  position: absolute;
-  height: 1.5em;
-  width: 58px;
-  left: 0;
-  border-radius: 100vmax;
-  background-image: var(--gradient);
-  transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+    position: absolute;
+    height: 1.5em;
+    width: 58px;
+    left: 0;
+    border-radius: 100vmax;
+    background-image: var(--gradient);
+    transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
 }
 @media only screen and (min-width: 768px) {
-  .switching__tabs .tab__items .gradient__background {
-    height: 1.75em;
-    width: 78px;
-  }
+    .switching__tabs .tab__items .gradient__background {
+        height: 1.75em;
+        width: 78px;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .switching__tabs .tab__items .gradient__background {
-    height: 2em;
-    width: 90px;
-  }
-}/*# sourceMappingURL=style.css.map */
+    .switching__tabs .tab__items .gradient__background {
+        height: 2em;
+        width: 90px;
+    }
+} /*# sourceMappingURL=style.css.map */

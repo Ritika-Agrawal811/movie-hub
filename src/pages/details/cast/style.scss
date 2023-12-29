@@ -2,120 +2,120 @@
 @use "../../../mixins" as *;
 
 .cast__section {
-  position: relative;
-  margin-bottom: 2em;
+    position: relative;
+    margin-bottom: 2em;
 
-  .heading {
-    font-size: 1.15rem;
-    color: var(--yellow);
-    margin-bottom: 1em;
-    font-weight: 400;
-
-    @include md {
-      font-size: 1.5rem;
-    }
-  }
-
-  .list__items {
-    overflow-y: hidden;
-    padding: 0 1em;
-    gap: 1.5em;
-    @include display-flex(space-between, flex-start);
-
-    @include md {
-      gap: 2em;
-    }
-
-    @include lg {
-      gap: 3em;
-    }
-
-    .listItem {
-      text-align: center;
-      color: #fff;
-
-      .cast__image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
+    .heading {
+        font-size: 1.15rem;
+        color: var(--yellow);
         margin-bottom: 1em;
-        overflow: hidden;
+        font-weight: 400;
 
         @include md {
-          width: 150px;
-          height: 150px;
+            font-size: 1.5rem;
         }
-
-        @include xl {
-          width: 170px;
-          height: 170px;
-        }
-
-        img {
-          @include object-cover;
-        }
-      }
-
-      .name {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5em;
-
-        @include md {
-          font-size: 1.15rem;
-        }
-      }
-
-      .character {
-        font-size: 0.85rem;
-        color: var(--pink);
-        font-style: italic;
-
-        @include md {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
-  .castSkeleton {
-    display: flex;
-    gap: 1.5em;
-    margin: 0 1em;
-    padding: 0 1em;
-    overflow-y: hidden;
-
-    @include md {
-      margin: 0;
-      padding: 0;
     }
 
-    .skItem {
-      .circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
+    .list__items {
+        overflow-y: hidden;
+        padding: 0 1em;
+        gap: 1.5em;
+        @include display-flex(space-between, flex-start);
 
         @include md {
-          width: 170px;
-          height: 170px;
+            gap: 2em;
         }
-      }
 
-      .row {
-        width: 100%;
-        height: 1.5em;
-        border-radius: 10px;
-        margin-bottom: 10px;
-      }
+        @include lg {
+            gap: 3em;
+        }
 
-      .row2 {
-        width: 75%;
-        height: 1.5em;
-        border-radius: 10px;
-        margin: 0 auto;
-      }
+        .listItem {
+            text-align: center;
+            color: #fff;
+
+            .cast__image {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                margin-bottom: 1em;
+                overflow: hidden;
+
+                @include md {
+                    width: 150px;
+                    height: 150px;
+                }
+
+                @include xl {
+                    width: 170px;
+                    height: 170px;
+                }
+
+                img {
+                    @include object-cover;
+                }
+            }
+
+            .name {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 0.5em;
+
+                @include md {
+                    font-size: 1.15rem;
+                }
+            }
+
+            .character {
+                font-size: 0.85rem;
+                color: var(--pink);
+                font-style: italic;
+
+                @include md {
+                    font-size: 1rem;
+                }
+            }
+        }
     }
-  }
+
+    .castSkeleton {
+        display: flex;
+        gap: 1.5em;
+        margin: 0 1em;
+        padding: 0 1em;
+        overflow-y: hidden;
+
+        @include md {
+            margin: 0;
+            padding: 0;
+        }
+
+        .skItem {
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+
+                @include md {
+                    width: 170px;
+                    height: 170px;
+                }
+            }
+
+            .row {
+                width: 100%;
+                height: 1.5em;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+
+            .row2 {
+                width: 75%;
+                height: 1.5em;
+                border-radius: 10px;
+                margin: 0 auto;
+            }
+        }
+    }
 }

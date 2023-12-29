@@ -2,141 +2,141 @@
 @use "../../../mixins" as *;
 
 .hero-banner {
-  position: relative;
-  width: 100%;
-  height: 28em;
-  background-color: var(--black);
-
-  @include display-flex;
-
-  @include md {
-    min-height: 100vh;
-  }
-
-  .backdrop-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-    overflow: hidden;
-
-    .lazy-load-image-background {
-      width: 100%;
-      height: 100%;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-
-  .opacity-layer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 10em;
-    background: linear-gradient(180deg, transparent 0%, #04152d 80%);
-  }
-
-  .hero-banner__content {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #fff;
-    flex-direction: column;
-
-    @include display-flex;
-
-    .title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.25em;
-
-      @include sm {
-        font-size: 3rem;
-      }
-
-      @include md {
-        font-size: 4rem;
-      }
-    }
-
-    .subTitle {
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 2em;
-      text-align: center;
-      line-height: 1.5;
-      color: var(--yellow);
-
-      @include sm {
-        font-size: 1.15rem;
-      }
-
-      @include md {
-        font-size: 1.25rem;
-      }
-    }
-  }
-
-  .searchInput {
     position: relative;
     width: 100%;
-    height: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    height: 28em;
+    background-color: var(--black);
 
     @include display-flex;
 
     @include md {
-      height: 2.5em;
+        min-height: 100vh;
     }
 
-    @include lg {
-      height: 3em;
+    .backdrop-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        overflow: hidden;
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
 
-    label {
-      position: absolute;
-      left: -99999px;
+    .opacity-layer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 10em;
+        background: linear-gradient(180deg, transparent 0%, #04152d 80%);
     }
 
-    input {
-      width: calc(100% - 5em);
-      height: 100%;
-      padding: 0 1em;
-      font-size: 0.75rem;
-      border-radius: 2em 0 0 2em;
-      background-color: #fff;
-      border: 0;
-      outline: 0;
+    .hero-banner__content {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #fff;
+        flex-direction: column;
 
-      @include md {
-        width: calc(100% - 8em);
-        font-size: 1rem;
-        padding: 0 2em;
-      }
+        @include display-flex;
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25em;
+
+            @include sm {
+                font-size: 3rem;
+            }
+
+            @include md {
+                font-size: 4rem;
+            }
+        }
+
+        .subTitle {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 2em;
+            text-align: center;
+            line-height: 1.5;
+            color: var(--yellow);
+
+            @include sm {
+                font-size: 1.15rem;
+            }
+
+            @include md {
+                font-size: 1.25rem;
+            }
+        }
     }
 
-    button {
-      width: 5em;
-      height: 100%;
-      font-size: 0.75rem;
-      font-weight: 700;
-      border-radius: 0 2em 2em 0;
-      background: var(--gradient);
-      border: 0;
-      cursor: pointer;
+    .searchInput {
+        position: relative;
+        width: 100%;
+        height: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
 
-      @include md {
-        width: 8em;
-        font-size: 1rem;
-      }
+        @include display-flex;
+
+        @include md {
+            height: 2.5em;
+        }
+
+        @include lg {
+            height: 3em;
+        }
+
+        label {
+            position: absolute;
+            left: -99999px;
+        }
+
+        input {
+            width: calc(100% - 5em);
+            height: 100%;
+            padding: 0 1em;
+            font-size: 0.75rem;
+            border-radius: 2em 0 0 2em;
+            background-color: #fff;
+            border: 0;
+            outline: 0;
+
+            @include md {
+                width: calc(100% - 8em);
+                font-size: 1rem;
+                padding: 0 2em;
+            }
+        }
+
+        button {
+            width: 5em;
+            height: 100%;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 0 2em 2em 0;
+            background: var(--gradient);
+            border: 0;
+            cursor: pointer;
+
+            @include md {
+                width: 8em;
+                font-size: 1rem;
+            }
+        }
     }
-  }
 }

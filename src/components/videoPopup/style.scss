@@ -2,70 +2,70 @@
 @use "../../mixins" as *;
 
 .video__popup {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 9;
-
-  @include display-flex;
-
-  .opacity__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
+    top: 0;
+    left: 0;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 400ms;
-  }
+    z-index: 9;
 
-  .video__player {
-    position: relative;
-    width: 90%;
-    max-width: 50em;
-    aspect-ratio: 16 / 9;
-    background-color: #fff;
-    transform: scale(0.2);
-    transition: transform 250ms;
-
-    .closeBtn {
-      position: absolute;
-      top: -2.5em;
-      right: 0;
-      color: #fff;
-      padding: 0.25em 0.5em;
-      border-radius: 100vmax;
-      border: 2px solid #fff;
-      background-color: transparent;
-      gap: 0.5em;
-      outline: 0;
-      cursor: pointer;
-
-      @include display-flex;
-
-      @include sm {
-        font-size: 1.05rem;
-      }
-    }
-  }
-
-  &.visible {
-    opacity: 1;
-    visibility: visible;
+    @include display-flex;
 
     .opacity__layer {
-      opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+        opacity: 0;
+        transition: opacity 400ms;
     }
 
     .video__player {
-      transform: scale(1);
+        position: relative;
+        width: 90%;
+        max-width: 50em;
+        aspect-ratio: 16 / 9;
+        background-color: #fff;
+        transform: scale(0.2);
+        transition: transform 250ms;
+
+        .closeBtn {
+            position: absolute;
+            top: -2.5em;
+            right: 0;
+            color: #fff;
+            padding: 0.25em 0.5em;
+            border-radius: 100vmax;
+            border: 2px solid #fff;
+            background-color: transparent;
+            gap: 0.5em;
+            outline: 0;
+            cursor: pointer;
+
+            @include display-flex;
+
+            @include sm {
+                font-size: 1.05rem;
+            }
+        }
     }
-  }
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+
+        .opacity__layer {
+            opacity: 1;
+        }
+
+        .video__player {
+            transform: scale(1);
+        }
+    }
 }

@@ -2,77 +2,77 @@
 @use "../../mixins" as *;
 
 .movie__card {
-  width: calc((100% - 0.75em) / 2);
-  margin-bottom: 1.5em;
-  cursor: pointer;
+    width: calc((100% - 0.75em) / 2);
+    margin-bottom: 1.5em;
+    cursor: pointer;
 
-  @include xs {
-    width: calc((100% - 1em) / 2);
-  }
-
-  @include sm {
-    width: calc((100% - 2em) / 3);
-  }
-
-  @include md {
-    width: calc((100% - 3em) / 4);
-  }
-
-  @include lg {
-    width: calc((100% - 4em) / 5);
-  }
-
-  .poster__block {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1.5;
-    margin-bottom: 1em;
-    transition: opacity ease 0.5s;
-
-    @include display-flex(space-between, flex-end);
-
-    .lazy-load-image-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0.5em;
-      overflow: hidden;
-
-      img {
-        @include object-cover;
-      }
-    }
-  }
-
-  .movie-card__content {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5em;
-
-    .title {
-      font-size: 1em;
-      line-height: 1.5;
-
-      @include ellipsis(1);
-
-      @include md {
-        font-size: 1.25em;
-      }
+    @include xs {
+        width: calc((100% - 1em) / 2);
     }
 
-    .date {
-      font-size: 0.95rem;
-      margin-top: 0.25em;
-      opacity: 0.5;
+    @include sm {
+        width: calc((100% - 2em) / 3);
     }
-  }
 
-  &:hover {
+    @include md {
+        width: calc((100% - 3em) / 4);
+    }
+
+    @include lg {
+        width: calc((100% - 4em) / 5);
+    }
+
     .poster__block {
-      opacity: 0.5;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        margin-bottom: 1em;
+        transition: opacity ease 0.5s;
+
+        @include display-flex(space-between, flex-end);
+
+        .lazy-load-image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5em;
+            overflow: hidden;
+
+            img {
+                @include object-cover;
+            }
+        }
     }
-  }
+
+    .movie-card__content {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5em;
+
+        .title {
+            font-size: 1em;
+            line-height: 1.5;
+
+            @include ellipsis(1);
+
+            @include md {
+                font-size: 1.25em;
+            }
+        }
+
+        .date {
+            font-size: 0.95rem;
+            margin-top: 0.25em;
+            opacity: 0.5;
+        }
+    }
+
+    &:hover {
+        .poster__block {
+            opacity: 0.5;
+        }
+    }
 }

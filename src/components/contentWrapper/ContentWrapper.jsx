@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
-import "./style.scss";
+import PropTypes from "prop-types"
+import "./style.scss"
 
 const ContentWrapper = ({ children }) => {
-  return <section className="content__wrapper">{children}</section>;
-};
+    return <section className='content__wrapper'>{children}</section>
+}
 
 ContentWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+    children: PropTypes.node.isRequired,
+}
 
-export default ContentWrapper;
+export default ContentWrapper

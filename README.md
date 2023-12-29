@@ -23,9 +23,7 @@ A responsive Single Page Application for listing Movies and TV shows built using
 
 <br/>
 
-
 https://github.com/Ritika-Agrawal811/movie-hub/assets/65513097/a3e19014-a94f-448f-a6d9-0e9ad6a7ccfd
-
 
 ### Screenshots :point_down:
 

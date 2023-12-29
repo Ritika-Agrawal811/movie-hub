@@ -2,133 +2,133 @@
 @use "../../../mixins" as *;
 
 .videos__wrapper {
-  position: relative;
-  margin-bottom: 3em;
+    position: relative;
+    margin-bottom: 3em;
 
-  .heading {
-    font-size: 1.15rem;
-    color: var(--yellow);
-    margin-bottom: 1em;
-    font-weight: 400;
+    .heading {
+        font-size: 1.15rem;
+        color: var(--yellow);
+        margin-bottom: 1em;
+        font-weight: 400;
 
-    @include md {
-      font-size: 1.5rem;
-    }
-  }
-
-  .videos {
-    display: flex;
-    gap: 0.5em;
-    overflow-x: auto;
-
-    @include md {
-      gap: 1em;
+        @include md {
+            font-size: 1.5rem;
+        }
     }
 
-    .videoItem {
-      width: 150px;
-      flex-shrink: 0;
-      cursor: pointer;
+    .videos {
+        display: flex;
+        gap: 0.5em;
+        overflow-x: auto;
 
-      @include md {
-        width: 25%;
-      }
-
-      .videoThumbnail {
-        margin-bottom: 1em;
-        position: relative;
-
-        img {
-          width: 100%;
-          display: block;
-          border-radius: 0.75em;
-          transition: all 0.7s ease-in-out;
+        @include md {
+            gap: 1em;
         }
 
-        svg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 50px;
-          height: 50px;
+        .videoItem {
+            width: 150px;
+            flex-shrink: 0;
+            cursor: pointer;
+
+            @include md {
+                width: 25%;
+            }
+
+            .videoThumbnail {
+                margin-bottom: 1em;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    display: block;
+                    border-radius: 0.75em;
+                    transition: all 0.7s ease-in-out;
+                }
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .triangle {
+                    stroke-dasharray: 240;
+                    stroke-dashoffset: 480;
+                    stroke: #fff;
+                    transform: translateY(0);
+                    transition: all 0.7s ease-in-out;
+                }
+
+                .circle {
+                    stroke: #fff;
+                    stroke-dasharray: 650;
+                    stroke-dashoffset: 1300;
+                    transition: all 0.5s ease-in-out;
+                }
+
+                &:hover {
+                    img {
+                        opacity: 0.5;
+                    }
+
+                    .triangle {
+                        stroke-dashoffset: 0;
+                        opacity: 1;
+                        stroke: var(--pink);
+                        animation: trailorPlay 0.7s ease-in-out;
+                    }
+
+                    .circle {
+                        stroke-dashoffset: 0;
+                        stroke: var(--pink);
+                    }
+                }
+            }
+
+            .video__title {
+                color: #fff;
+                font-size: 1em;
+                @include ellipsis(1);
+            }
         }
-
-        .triangle {
-          stroke-dasharray: 240;
-          stroke-dashoffset: 480;
-          stroke: #fff;
-          transform: translateY(0);
-          transition: all 0.7s ease-in-out;
-        }
-
-        .circle {
-          stroke: #fff;
-          stroke-dasharray: 650;
-          stroke-dashoffset: 1300;
-          transition: all 0.5s ease-in-out;
-        }
-
-        &:hover {
-          img {
-            opacity: 0.5;
-          }
-
-          .triangle {
-            stroke-dashoffset: 0;
-            opacity: 1;
-            stroke: var(--pink);
-            animation: trailorPlay 0.7s ease-in-out;
-          }
-
-          .circle {
-            stroke-dashoffset: 0;
-            stroke: var(--pink);
-          }
-        }
-      }
-
-      .video__title {
-        color: #fff;
-        font-size: 1em;
-        @include ellipsis(1);
-      }
     }
-  }
 
-  .videoSkeleton {
-    display: flex;
-    gap: 0.5em;
-    overflow-x: auto;
+    .videoSkeleton {
+        display: flex;
+        gap: 0.5em;
+        overflow-x: auto;
 
-    .skItem {
-      width: 150px;
-      flex-shrink: 0;
+        .skItem {
+            width: 150px;
+            flex-shrink: 0;
 
-      @include md {
-        width: 25%;
-      }
+            @include md {
+                width: 25%;
+            }
 
-      .thumb {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        border-radius: 0.75em;
-        margin-bottom: 1em;
-      }
+            .thumb {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                border-radius: 0.75em;
+                margin-bottom: 1em;
+            }
 
-      .row {
-        height: 1.5em;
-        width: 100%;
-        border-radius: 0.75em;
-        margin-bottom: 1em;
-      }
+            .row {
+                height: 1.5em;
+                width: 100%;
+                border-radius: 0.75em;
+                margin-bottom: 1em;
+            }
 
-      .row2 {
-        height: 1.5em;
-        width: 75%;
-        border-radius: 0.75em;
-        margin-bottom: 1em;
-      }
+            .row2 {
+                height: 1.5em;
+                width: 75%;
+                border-radius: 0.75em;
+                margin-bottom: 1em;
+            }
+        }
     }
-  }
 }

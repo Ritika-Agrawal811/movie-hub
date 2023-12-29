@@ -1,19 +1,19 @@
 @mixin display-flex($jc: center, $ai: center) {
-  display: flex;
-  align-items: $ai;
-  justify-content: $jc;
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
 }
 
 @mixin ellipsis($line: 2) {
-  display: -webkit-box;
-  -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @mixin object-cover($percentage: 100%) {
-  width: $percentage;
-  height: $percentage;
-  object-fit: cover;
+    width: $percentage;
+    height: $percentage;
+    object-fit: cover;
 }

@@ -1,22 +1,22 @@
 @use "../../mixins" as *;
 
 .carousel {
-  position: relative;
-  margin-bottom: 4em;
+    position: relative;
+    margin-bottom: 4em;
 
-  .content__wrapper {
-    margin-bottom: 1em;
-    flex-direction: column;
-    @include display-flex(space-between, flex-start);
-  }
-
-  .carousel__header {
-    width: 100%;
-
-    @include display-flex(space-between);
-
-    h2 {
-      margin: 0;
+    .content__wrapper {
+        margin-bottom: 1em;
+        flex-direction: column;
+        @include display-flex(space-between, flex-start);
     }
-  }
+
+    .carousel__header {
+        width: 100%;
+
+        @include display-flex(space-between);
+
+        h2 {
+            margin: 0;
+        }
+    }
 }

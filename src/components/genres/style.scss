@@ -1,19 +1,19 @@
 @use "../../breakpoints" as *;
 
 .genres__container {
-  display: flex;
-  gap: 5px;
+    display: flex;
+    gap: 5px;
 
-  .genre {
-    background-color: var(--pink);
-    padding: 0.4em 0.8em;
-    font-size: 0.65rem;
-    border-radius: 100vmax;
-    color: #fff;
-    white-space: nowrap;
+    .genre {
+        background-color: var(--pink);
+        padding: 0.4em 0.8em;
+        font-size: 0.65rem;
+        border-radius: 100vmax;
+        color: #fff;
+        white-space: nowrap;
 
-    @include lg {
-      font-size: 0.75rem;
+        @include lg {
+            font-size: 0.75rem;
+        }
     }
-  }
 }

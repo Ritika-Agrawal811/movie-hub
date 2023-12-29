@@ -1,204 +1,204 @@
 .carousel {
-  margin-bottom: 3em;
+    margin-bottom: 3em;
 }
 .carousel .content__wrapper {
-  position: relative;
-  margin-top: 2em;
+    position: relative;
+    margin-top: 2em;
 }
 @media only screen and (min-width: 1280px) {
-  .carousel .content__wrapper {
-    padding: 0;
-  }
+    .carousel .content__wrapper {
+        padding: 0;
+    }
 }
 .carousel .carousel__title {
-  font-size: 1.15rem;
-  color: var(--yellow);
-  margin-bottom: 1em;
-  font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--yellow);
+    margin-bottom: 1em;
+    font-weight: 400;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .carousel__title {
-    font-size: 1.5rem;
-  }
+    .carousel .carousel__title {
+        font-size: 1.5rem;
+    }
 }
 .carousel .arrow {
-  color: #000;
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  display: none;
-  cursor: pointer;
-  z-index: 1;
+    color: #000;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    display: none;
+    cursor: pointer;
+    z-index: 1;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .arrow {
-    display: block;
-    font-size: 1.5em;
-  }
+    .carousel .arrow {
+        display: block;
+        font-size: 1.5em;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .carousel .arrow {
-    font-size: 2em;
-  }
+    .carousel .arrow {
+        font-size: 2em;
+    }
 }
 .carousel .arrow:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 .carousel .carousel__left-arrow {
-  left: 1em;
+    left: 1em;
 }
 @media only screen and (min-width: 1280px) {
-  .carousel .carousel__left-arrow {
-    left: 0.5em;
-  }
+    .carousel .carousel__left-arrow {
+        left: 0.5em;
+    }
 }
 .carousel .carousel__right-arrow {
-  right: 1em;
+    right: 1em;
 }
 @media only screen and (min-width: 1280px) {
-  .carousel .carousel__right-arrow {
-    right: 0.5em;
-  }
+    .carousel .carousel__right-arrow {
+        right: 0.5em;
+    }
 }
 .carousel .loadingSkeleton {
-  display: flex;
-  width: 100%;
-  gap: 1em;
-  overflow-y: hidden;
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    overflow-y: hidden;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .loadingSkeleton {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    gap: 1em;
-  }
+    .carousel .loadingSkeleton {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        gap: 1em;
+    }
 }
 .carousel .loadingSkeleton .skeletonItem {
-  width: 125px;
-  flex-shrink: 0;
+    width: 125px;
+    flex-shrink: 0;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .loadingSkeleton .skeletonItem {
-    width: calc((100% - 4em) / 5);
-  }
+    .carousel .loadingSkeleton .skeletonItem {
+        width: calc((100% - 4em) / 5);
+    }
 }
 .carousel .loadingSkeleton .skeletonItem .posterBlock {
-  border-radius: 1em;
-  width: 100%;
-  aspect-ratio: 1/1.5;
-  margin-bottom: 2em;
+    border-radius: 1em;
+    width: 100%;
+    aspect-ratio: 1/1.5;
+    margin-bottom: 2em;
 }
 .carousel .loadingSkeleton .skeletonItem .textBlock {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .carousel .loadingSkeleton .skeletonItem .textBlock .title {
-  width: 100%;
-  height: 1.5em;
-  margin-bottom: 0.5em;
+    width: 100%;
+    height: 1.5em;
+    margin-bottom: 0.5em;
 }
 .carousel .loadingSkeleton .skeletonItem .textBlock .date {
-  width: 75%;
-  height: 1.5em;
+    width: 75%;
+    height: 1.5em;
 }
 .carousel .carousel__items {
-  display: flex;
-  width: 100%;
-  gap: 1em;
-  overflow-y: hidden;
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    overflow-y: hidden;
 }
 .carousel .carousel__items .carousel__item {
-  width: 125px;
-  flex-shrink: 0;
-  cursor: pointer;
+    width: 125px;
+    flex-shrink: 0;
+    cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .carousel__items .carousel__item {
-    width: calc((100% - 4em) / 5);
-  }
+    .carousel .carousel__items .carousel__item {
+        width: calc((100% - 4em) / 5);
+    }
 }
 .carousel .carousel__items .carousel__item .posterBlock {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1/1.5;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 2em;
-  padding: 0.5em;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1.5;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 .carousel .carousel__items .carousel__item .posterBlock .lazy-load-image-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.75em;
-  overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75em;
+    overflow: hidden;
 }
 .carousel .carousel__items .carousel__item .posterBlock .lazy-load-image-background img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 .carousel .carousel__items .carousel__item .posterBlock .circle__rating {
-  position: relative;
-  width: 2.5em;
-  height: 2.5em;
-  top: 2em;
-  background-color: var(--black);
-  flex-shrink: 0;
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    top: 2em;
+    background-color: var(--black);
+    flex-shrink: 0;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .carousel__items .carousel__item .posterBlock .circle__rating {
-    width: 3em;
-    height: 3em;
-  }
+    .carousel .carousel__items .carousel__item .posterBlock .circle__rating {
+        width: 3em;
+        height: 3em;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .carousel .carousel__items .carousel__item .posterBlock .circle__rating {
-    width: 3.5em;
-    height: 3.5em;
-  }
+    .carousel .carousel__items .carousel__item .posterBlock .circle__rating {
+        width: 3.5em;
+        height: 3.5em;
+    }
 }
 .carousel .carousel__items .carousel__item .posterBlock .genres__container {
-  display: none;
-  position: relative;
+    display: none;
+    position: relative;
 }
 @media only screen and (min-width: 1024px) {
-  .carousel .carousel__items .carousel__item .posterBlock .genres__container {
-    flex-flow: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
+    .carousel .carousel__items .carousel__item .posterBlock .genres__container {
+        flex-flow: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
 }
 .carousel .carousel__items .carousel__item .carousel__content {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 .carousel .carousel__items .carousel__item .carousel__content .title {
-  font-size: 1rem;
-  margin-bottom: 0.5em;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 @media only screen and (min-width: 768px) {
-  .carousel .carousel__items .carousel__item .carousel__content .title {
-    font-size: 1.15rem;
-  }
+    .carousel .carousel__items .carousel__item .carousel__content .title {
+        font-size: 1.15rem;
+    }
 }
 .carousel .carousel__items .carousel__item .carousel__content .date {
-  font-size: 0.85rem;
-  margin-bottom: 1em;
-  opacity: 0.5;
-}/*# sourceMappingURL=style.css.map */
+    font-size: 0.85rem;
+    margin-bottom: 1em;
+    opacity: 0.5;
+} /*# sourceMappingURL=style.css.map */

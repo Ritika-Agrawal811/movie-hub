@@ -1,78 +1,78 @@
 .searchResultsPage {
-  min-height: 700px;
-  padding-top: 6em;
+    min-height: 700px;
+    padding-top: 6em;
 }
 .searchResultsPage .content__wrapper {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .searchResultsPage .content__wrapper span.lazy-load-image-background {
-  text-align: center;
+    text-align: center;
 }
 .searchResultsPage .content__wrapper img {
-  align-self: center;
-  width: 80%;
-  height: 80%;
-  -o-object-fit: cover;
-     object-fit: cover;
+    align-self: center;
+    width: 80%;
+    height: 80%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 @media only screen and (min-width: 640px) {
-  .searchResultsPage .content__wrapper img {
-    width: 60%;
-    height: 60%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
+    .searchResultsPage .content__wrapper img {
+        width: 60%;
+        height: 60%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
 }
 @media only screen and (min-width: 768px) {
-  .searchResultsPage .content__wrapper img {
-    width: 50%;
-    height: 50%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
+    .searchResultsPage .content__wrapper img {
+        width: 50%;
+        height: 50%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .searchResultsPage .content__wrapper img {
-    width: 30%;
-    height: 30%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
+    .searchResultsPage .content__wrapper img {
+        width: 30%;
+        height: 30%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
 }
 .searchResultsPage .resultNotFound {
-  font-size: 1em;
-  color: var(--black-light);
+    font-size: 1em;
+    color: var(--black-light);
 }
 @media only screen and (min-width: 768px) {
-  .searchResultsPage .resultNotFound {
-    font-size: 1.5em;
-  }
+    .searchResultsPage .resultNotFound {
+        font-size: 1.5em;
+    }
 }
 .searchResultsPage .page__title {
-  font-size: 1.15em;
-  margin-bottom: 1em;
-  color: #fff;
+    font-size: 1.15em;
+    margin-bottom: 1em;
+    color: #fff;
 }
 @media only screen and (min-width: 640px) {
-  .searchResultsPage .page__title {
-    font-size: 1.25em;
-  }
+    .searchResultsPage .page__title {
+        font-size: 1.25em;
+    }
 }
 @media only screen and (min-width: 1024px) {
-  .searchResultsPage .page__title {
-    font-size: 1.5em;
-  }
+    .searchResultsPage .page__title {
+        font-size: 1.5em;
+    }
 }
 .searchResultsPage .content {
-  flex-flow: row wrap;
-  margin: 2em 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    flex-flow: row wrap;
+    margin: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .searchResultsPage .content .movieCard .posterBlock {
-  margin-bottom: 2em;
-}/*# sourceMappingURL=style.css.map */
+    margin-bottom: 2em;
+} /*# sourceMappingURL=style.css.map */
