@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import "./style.scss";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const SwitchTabs = ({ data, onTabChange }) => {
   const [currentTab, setCurrentTab] = useState({ index: 0, left: 0 });

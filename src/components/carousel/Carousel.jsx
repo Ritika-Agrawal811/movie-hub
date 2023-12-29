@@ -8,11 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 
-import CircleRating from "../circleRating/CircleRating";
-import ContentWrapper from "../contentWrapper/ContentWrapper";
-import Image from "../lazyLoadImage/Image";
-import Genres from "../genres/Genres";
-import PosterFallback from "../../assets/no-poster.png";
+import CircleRating from "@/components/circleRating/CircleRating";
+import ContentWrapper from "@/components/contentWrapper/ContentWrapper";
+import Image from "@/components/lazyLoadImage/Image";
+import Genres from "@/components/genres/Genres";
+import PosterFallback from "@/assets/no-poster.png";
 
 import "./style.scss";
 

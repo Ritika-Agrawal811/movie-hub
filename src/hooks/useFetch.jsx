@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import client from "../utils/api";
+import client from "@/utils/api";
 
 const useFetch = (url, params) => {
   const [response, setResponse] = useState({

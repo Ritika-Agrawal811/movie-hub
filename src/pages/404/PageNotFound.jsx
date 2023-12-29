@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import "./style.scss";
 
-import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
-import Image from "../../components/lazyLoadImage/Image";
-import rightPlugImage from "../../assets/right-plug.png";
-import leftPlugImage from "../../assets/left-plug.png";
+import ContentWrapper from "@/components/contentWrapper/ContentWrapper";
+import Image from "@/components/lazyLoadImage/Image";
+import rightPlugImage from "@/assets/right-plug.png";
+import leftPlugImage from "@/assets/left-plug.png";
 const PageNotFound = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();

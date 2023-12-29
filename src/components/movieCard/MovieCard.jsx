@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "./style.scss";
-import Image from "../lazyLoadImage/Image";
-import PosterFallback from "../../assets/no-poster.png";
+import Image from "@/components/lazyLoadImage/Image";
+import PosterFallback from "@/assets/no-poster.png";
 
 const MovieCard = ({ data, mediaType }) => {
   const { url } = useSelector((state) => state.home);

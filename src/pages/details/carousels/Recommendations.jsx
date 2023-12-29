@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Carousel from "../../../components/carousel/Carousel";
-import useFetch from "../../../hooks/useFetch";
+import Carousel from "@/components/carousel/Carousel";
+import useFetch from "@/hooks/useFetch";
 
 const Recommendations = ({ mediaType, id }) => {
   const { data, loading } = useFetch(`/${mediaType}/${id}/recommendations`);

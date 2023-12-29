@@ -5,8 +5,8 @@ import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 
 import "./style.scss";
-import logo from "../../assets/movix-logo.svg";
-import ContentWrapper from "../contentWrapper/ContentWrapper";
+import logo from "@/assets/movix-logo.svg";
+import ContentWrapper from "@/components/contentWrapper/ContentWrapper";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);

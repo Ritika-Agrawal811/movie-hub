@@ -4,10 +4,10 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
-import ContentWrapper from "../contentWrapper/ContentWrapper";
+import ContentWrapper from "@/components/contentWrapper/ContentWrapper";
 
 import "./style.scss";
-import logo from "../../assets/movix-logo.svg";
+import logo from "@/assets/movix-logo.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
