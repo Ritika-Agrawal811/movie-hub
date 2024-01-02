@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useCallback } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { getApiConfiguration, getGenres } from "./store/homeSlice"
@@ -16,22 +16,25 @@ import PageNotFound from "./pages/404/PageNotFound"
 function App() {
     const dispatch = useDispatch()
 
-    const storeGenres = async () => {
-        let promises = []
-        let endPoints = ["tv", "movie"]
-        let allGenres = {}
+    const storeGenres = useCallback(async () => {
+        const promises = []
+        const endPoints = ["tv", "movie"]
+        const allGenres = {}
 
         endPoints.forEach((url) => {
             promises.push(fetchDataFromApi(`/genre/${url}/list`))
         })
 
         const data = await Promise.all(promises)
-        data.map(({ genres }) => {
-            return genres.map((item) => (allGenres[item.id] = item))
+
+        // fetching genres for both "tv" and "movie" and storing them in allGenres object
+        data.forEach(({ genres }) => {
+            genres.forEach((item) => (allGenres[item.id] = item))
         })
 
+        // calling reducer function to set the genres in our store
         dispatch(getGenres(allGenres))
-    }
+    }, [dispatch])
 
     useEffect(() => {
         const storeConfigurationData = async () => {
@@ -50,7 +53,7 @@ function App() {
 
         storeConfigurationData()
         storeGenres()
-    }, [])
+    }, [dispatch, storeGenres])
 
     return (
         <BrowserRouter>
