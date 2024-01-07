@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom"
 import "./style.scss"
 
 import ContentWrapper from "@/components/contentWrapper/ContentWrapper"
+import SearchField from "@/components/searchField/SearchField"
 import Image from "@/components/lazyLoadImage/Image"
 import rightPlugImage from "@/assets/right-plug.png"
 import leftPlugImage from "@/assets/left-plug.png"
+
 const PageNotFound = () => {
     const [query, setQuery] = useState("")
     const navigate = useNavigate()
@@ -28,22 +30,7 @@ const PageNotFound = () => {
                 </div>
 
                 <section className='search__container'>
-                    <label htmlFor='searchField'>Please enter a Movie or TV Show you are looking for.</label>
-                    <div className='searchInput'>
-                        <input
-                            autoComplete='off'
-                            type='text'
-                            placeholder='Search'
-                            id='searchField'
-                            name='searchbox'
-                            role='search'
-                            value={query}
-                            onKeyUp={searchQueryHandler}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-
-                        <button onClick={searchQueryHandler}>Search</button>
-                    </div>
+                    <SearchField query={query} setQuery={setQuery} searchQueryHandler={searchQueryHandler} />
                 </section>
             </ContentWrapper>
         </section>

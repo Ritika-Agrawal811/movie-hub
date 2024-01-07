@@ -5,6 +5,7 @@ import useFetch from "@/hooks/useFetch"
 
 import Image from "@/components/lazyLoadImage/Image"
 import ContentWrapper from "@/components/contentWrapper/ContentWrapper"
+import SearchField from "@/components/searchField/SearchField"
 import "./style.scss"
 
 const HeroBanner = () => {
@@ -38,21 +39,7 @@ const HeroBanner = () => {
                     <h1 className='title'>Welcome</h1>
                     <p className='subTitle'>Millions of movies, TV shows and people to discover. Explore now.</p>
                 </section>
-                <section className='searchInput'>
-                    <label htmlFor='searchField'>Search for a movie or tv show</label>
-                    <input
-                        type='text'
-                        placeholder='Search for a Movie or TV show...'
-                        id='searchField'
-                        name='searchbox'
-                        role='search'
-                        value={query}
-                        onKeyUp={searchQueryHandler}
-                        onChange={(e) => setQuery(e.target.value)}
-                    />
-
-                    <button onClick={searchQueryHandler}>Search</button>
-                </section>
+                <SearchField query={query} setQuery={setQuery} searchQueryHandler={searchQueryHandler} />
             </ContentWrapper>
         </section>
     )
