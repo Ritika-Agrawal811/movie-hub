@@ -1,5 +1,5 @@
-<div style="text-align:center">
-<img src="./src/assets/movieHub-logo.png" width="30%">
+<div align="center">
+<img src="./src/assets/movieHub-logo.png" width="20%">
 
 # Movie Hub
 
