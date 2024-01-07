@@ -2,7 +2,7 @@
 
 A responsive Single Page Application for listing Movies and TV shows built using ReactJS and Sass for styling. A beautiful user interface that allows users to browse, search and explore a wide collection of Movies and TV Shows fetched from TMDB API!
 
-#### (Visit)[https://movie-hub-ji1z.onrender.com/]
+#### [Click here to visit Movie Hub 💛 ](https://movie-hub-ji1z.onrender.com/)
 
 ### Features :dart:
 
