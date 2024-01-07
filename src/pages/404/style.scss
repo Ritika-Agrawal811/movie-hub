@@ -17,68 +17,47 @@
         flex-direction: column;
         @include display-flex;
 
-        .error__subBlock {
-            position: absolute;
-            top: 9em;
-            gap: 0.5em;
-            @include display-flex;
+        .error__image-container {
+            width: min(95%, 900px);
+            margin: 1em 0;
+        }
 
-            @include sm {
-                gap: 1.5em;
-                top: 6em;
-            }
-
-            @include lg {
-                top: 8em;
-            }
-
-            img {
-                user-select: none;
-                @include object-cover;
-
-                &.left-plug {
-                    transform: scaleY(-1) rotate(-3deg);
-                }
-
-                &.right-plug {
-                    transform: scaleY(-1) rotate(5deg);
-                }
-            }
+        .error__image {
+            width: 100%;
+            object-fit: cover;
         }
 
         .error__title {
-            font-size: 5em;
+            font-size: 2em;
             font-weight: 700;
             color: var(--pink);
             font-family: "Salsa", cursive;
 
             @include md {
-                font-size: 6.5em;
-            }
-
-            @include lg {
-                font-size: 10em;
+                font-size: 4em;
             }
         }
 
         .error__subtitle {
-            font-size: 1.5em;
-            color: var(--pink);
-            font-family: "Salsa", cursive;
+            color: #fff;
             text-align: center;
+            margin: 1em 0;
+            line-height: 1.5;
+            font-size: 0.95rem;
 
             @include md {
-                font-size: 2em;
+                font-size: 1.15rem;
+                width: 75%;
             }
 
             @include lg {
-                font-size: 3em;
+                width: 45%;
             }
         }
     }
 
     .search__container {
-        margin-top: 13em;
+        margin-top: 1em;
         width: 100%;
     }
 }
