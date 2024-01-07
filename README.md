@@ -1,17 +1,29 @@
-## Movie Hub :sparkles:
+<div style="text-align:center">
+<img src="./src/assets/movieHub-logo.png" width="30%">
 
-A responsive Single Page Application for listing Movies and TV shows built using ReactJS and Sass for styling. A beautiful user interface that allows users to browse, search and explore a wide collection of Movies and TV Shows fetched from TMDB API!
+# Movie Hub
 
-#### [Click here to visit Movie Hub 💛 ](https://movie-hub-ji1z.onrender.com/)
+<p>A responsive Single Page Application for listing Movies and TV shows built using ReactJS and Sass for styling. A beautiful user interface that allows users to browse, search and explore a wide collection of Movies and TV Shows fetched from TMDB API!</p>
 
-### Features :dart:
+### [Click here to visit Movie Hub 💛 ](https://movie-hub-ji1z.onrender.com/)
 
-:small_blue_diamond: "Search" Button to search for a specific movie or tv show <br/>
-:small_blue_diamond: Sorting movies/tv shows based on genres, rating and popularity. <br/>
-:small_blue_diamond: 404 page to handle nonexistent routes <br/>
-:small_blue_diamond: Carousels with a toggle switch to switch between movies and tv shows for different categories.
+</div>
 
-### Packages Used :memo:
+## Features :dart:
+
+**1. Searching:** <br/>
+A "Search" Button to search for a specific movie or tv show by their name.
+
+**2. Sorting:** <br/>
+You can sort movies/tv shows based on their genres, rating and popularity. <br/>
+
+**3. 404 Page:** <br/>
+A custom 404 page to handle nonexistent routes <br/>
+
+**4. Carousels:** <br/>
+Carousels with a toggle button to switch between movies and tv shows for different categories.
+
+## Packages Used :memo:
 
 :high_brightness: Sass for styling <br/>
 :high_brightness: Axios <br/>
